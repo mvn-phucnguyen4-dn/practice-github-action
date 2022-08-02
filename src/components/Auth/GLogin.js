@@ -10,8 +10,8 @@ const GLogin = (props) => {
 
   // Configure Firebase.
   const config = {
-    apiKey: "AIzaSyC_t25GAyQ1m8BDvgCMu0dGKXnQFCjanw8",
-    authDomain: "nodejs-community.firebaseapp.com",
+    apiKey: process.env.FIREBASE_API_KEY,
+    authDomain: process.env.FIREBASE_AUTH_DOMAIN,
     // ...
   };
 
