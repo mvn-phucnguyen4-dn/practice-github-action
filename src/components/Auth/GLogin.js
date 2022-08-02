@@ -11,7 +11,11 @@ const GLogin = (props) => {
   // Configure Firebase.
   const config = {
     apiKey: process.env.FIREBASE_API_KEY,
+<<<<<<< HEAD
     authDomain: process.env.FIREBASE_AUTH_DOMAIN
+=======
+    authDomain: process.env.FIREBASE_AUTH_DOMAIN,
+>>>>>>> a1a01d747e71ba30cf3c478415c3fcf57e957b5e
     // ...
   };
 
