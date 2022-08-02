@@ -18,8 +18,7 @@ const useAuth = () => {
     setUserId(user.userId);
     setUser(user);
 
-    const tokenExpirationDate =
-      expirationDate || new Date(new Date().getTime() + 1000 * 60 * 60);
+    const tokenExpirationDate = expirationDate || new Date(new Date().getTime() + 1000 * 60 * 60);
     setTokenExpirationDate(tokenExpirationDate);
     localStorage.setItem(
       'userData',
@@ -31,7 +30,7 @@ const useAuth = () => {
         email: user.email,
         name: user.name,
         tags: user.tags,
-        expiration: tokenExpirationDate.toISOString(),
+        expiration: tokenExpirationDate.toISOString()
       })
     );
   }, []);
@@ -41,13 +40,12 @@ const useAuth = () => {
     setUserId(null);
     setUser(null);
     setTokenExpirationDate(null);
-    localStorage.removeItem('userData');    
+    localStorage.removeItem('userData');
   }, [sendReq]);
 
   useEffect(() => {
     if (token && tokenExpirationDate) {
-      const remainingTime =
-        tokenExpirationDate.getTime() - new Date().getTime();
+      const remainingTime = tokenExpirationDate.getTime() - new Date().getTime();
       logoutTimer = setTimeout(logout, remainingTime);
     } else {
       clearTimeout(logoutTimer);

@@ -21,10 +21,8 @@ const SearchBar = (props) => {
 
   return (
     <input
-      className={
-        props.showSearchOnMobile ? 'search-bar--mobile ' : 'search-bar '
-      }
-      key='random1'
+      className={props.showSearchOnMobile ? 'search-bar--mobile ' : 'search-bar '}
+      key="random1"
       value={value}
       placeholder={'Search...'}
       onChange={onInputChange}

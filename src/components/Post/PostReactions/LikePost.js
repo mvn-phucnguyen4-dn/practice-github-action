@@ -9,24 +9,16 @@ export const LikePost = ({ likes, handleReaction, isLiked, setShowModal }) => {
   const effect = isLiked ? 'negative' : 'positive';
 
   const handleClick = () => {
-    !currentUserId
-      ? setShowModal(true)
-      : handleReaction(action, effect, likes, 'isLiked');
+    !currentUserId ? setShowModal(true) : handleReaction(action, effect, likes, 'isLiked');
   };
 
   return (
-    <div
-      className={`${
-        isLiked ? 'reactions__block clicked--like' : 'reactions__block'
-      }`}
-    >
+    <div className={`${isLiked ? 'reactions__block clicked--like' : 'reactions__block'}`}>
       <i
         onClick={handleClick}
-        className={`${
-          isLiked ? 'reactions__like reactions__liked' : 'reactions__like'
-        }`}
+        className={`${isLiked ? 'reactions__like reactions__liked' : 'reactions__like'}`}
       >
-        <LikeIcon state={isLiked} size='2.5rem' />
+        <LikeIcon state={isLiked} size="2.5rem" />
       </i>
       <span>{likes && likes.length}</span>
     </div>

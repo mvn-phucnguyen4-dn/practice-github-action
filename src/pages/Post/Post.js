@@ -33,16 +33,12 @@ const Post = (props) => {
       {isLoading && <SkeletonPage />}
       <ErrorModal error={error} onClose={clearError} />
       {!isLoading && post.author && (
-        <div className='container-layout-post'>
+        <div className="container-layout-post">
           <PostReactions post={post} setShowModal={setShowModal} />
           <AuthModal onClose={() => setShowModal(false)} show={showModal} />
-          <div className='container-post'>
+          <div className="container-post">
             <PostContent post={post} />
-            <PostAuthor
-              setShowModal={setShowModal}
-              author={author}
-              isLoading={isLoading}
-            />
+            <PostAuthor setShowModal={setShowModal} author={author} isLoading={isLoading} />
           </div>
         </div>
       )}

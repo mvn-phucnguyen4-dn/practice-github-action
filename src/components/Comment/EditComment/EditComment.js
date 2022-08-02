@@ -6,8 +6,7 @@ import CommentForm from '../NewComment/CommentForm';
 import { CommentContext } from '../Comments';
 
 export const EditComment = ({ commentId, commentBody, setShowModal }) => {
-  const { setActiveComment, comments, setComments } =
-    useContext(CommentContext);
+  const { setActiveComment, comments, setComments } = useContext(CommentContext);
   const { currentUser } = useContext(AuthContext);
   const { sendReq, error, clearError } = useHttpClient();
 
@@ -23,7 +22,7 @@ export const EditComment = ({ commentId, commentBody, setShowModal }) => {
         JSON.stringify({ body, author: currentUser.userId }),
         {
           'Content-Type': 'application/json',
-          Authorization: `Bearer ${currentUser.token}`,
+          Authorization: `Bearer ${currentUser.token}`
         }
       );
     } catch (err) {}
@@ -35,7 +34,7 @@ export const EditComment = ({ commentId, commentBody, setShowModal }) => {
     <>
       <ErrorModal error={error} onClose={clearError} />
       <CommentForm
-        submitLabel='Edit comment'
+        submitLabel="Edit comment"
         hasCancelButton={true}
         initialText={commentBody}
         handleSubmit={(text) => updateComment(text, commentId)}

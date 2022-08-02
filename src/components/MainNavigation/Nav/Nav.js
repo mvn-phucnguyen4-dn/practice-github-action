@@ -39,7 +39,7 @@ const Nav = ({ children, onSearchIconClick }) => {
             'GET',
             null,
             {
-              Authorization: `Bearer ${currentUser.token}`,
+              Authorization: `Bearer ${currentUser.token}`
             }
           );
           setUnreadNotifications(responseData.notifications);
@@ -57,21 +57,18 @@ const Nav = ({ children, onSearchIconClick }) => {
     });
   }, [current]);
 
-
   return (
-    <div className='container container-nav'>
-      {drawerIsOpen && (
-        <SideDrawer onClose={closeDrawerHandler} onClick={closeDrawerHandler} />
-      )}
+    <div className="container container-nav">
+      {drawerIsOpen && <SideDrawer onClose={closeDrawerHandler} onClick={closeDrawerHandler} />}
 
-      <div className='header__hamburger-menu' onClick={openDrawerHandler}></div>
-      <div className='header__logo-search'>
-        <NavLink to='/' className='header__logo'>
-          <FaDev size='4.125rem' />
+      <div className="header__hamburger-menu" onClick={openDrawerHandler}></div>
+      <div className="header__logo-search">
+        <NavLink to="/" className="header__logo">
+          <FaDev size="4.125rem" />
         </NavLink>
         {children}
       </div>
-      <nav className='nav'>
+      <nav className="nav">
         <NavLinks
           unreadNotifications={unreadNotifications}
           setUnreadNotifications={setUnreadNotifications}

@@ -17,21 +17,21 @@ const Comment = ({ comment, replies, parentId = null, currentUserId }) => {
   const createdAt = formatDate(comment.date);
   return (
     <>
-      <div className='container-comment'>
+      <div className="container-comment">
         <Avatar
-          className='author__image--comment'
+          className="author__image--comment"
           src={`${comment.author.avatar}`}
           link={`/users/${comment.author.id}`}
         />
-        <div className='comment'>
-          <div className='comment__content'>
-            <div className='comment__meta'>
-              <div className='comment__author'>{comment.author.name}</div>
+        <div className="comment">
+          <div className="comment__content">
+            <div className="comment__meta">
+              <div className="comment__author">{comment.author.name}</div>
               <span>{createdAt}</span>
             </div>
 
             {!isEditing(activeComment, comment.id) ? (
-              <div className='comment__body'>{comment.body}</div>
+              <div className="comment__body">{comment.body}</div>
             ) : (
               <EditComment
                 commentId={comment.id}
@@ -41,8 +41,8 @@ const Comment = ({ comment, replies, parentId = null, currentUserId }) => {
             )}
           </div>
           <AuthModal onClose={() => setShowModal(false)} show={showModal} />
-          <div className='preview__reactions'>
-            <div className='preview__reactions--left'>
+          <div className="preview__reactions">
+            <div className="preview__reactions--left">
               <LikeComment
                 likes={comment.likes}
                 commentId={comment.id}
@@ -55,16 +55,13 @@ const Comment = ({ comment, replies, parentId = null, currentUserId }) => {
               />
             </div>
 
-            <div className='preview__reactions--right'>
+            <div className="preview__reactions--right">
               <EditCommentButton
                 currentUserId={currentUserId}
                 commentId={comment.id}
                 authorId={comment.author.id}
               />
-              <DeleteComment
-                commentId={comment.id}
-                authorId={comment.author.id}
-              />
+              <DeleteComment commentId={comment.id} authorId={comment.author.id} />
             </div>
           </div>
         </div>
@@ -73,7 +70,7 @@ const Comment = ({ comment, replies, parentId = null, currentUserId }) => {
       {isReplying(activeComment, comment.id) && (
         <NewComment replyId={parentId ? parentId : comment.id} />
       )}
-      <div className='replies' style={{ marginLeft: '5rem' }}>
+      <div className="replies" style={{ marginLeft: '5rem' }}>
         {replies.length > 0 &&
           replies.map((reply) => (
             <Comment

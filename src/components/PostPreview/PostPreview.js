@@ -17,20 +17,16 @@ const PostPreview = (props) => {
   const createdAt = formatDate(date);
 
   return (
-    <div className='preview flow-content'>
+    <div className="preview flow-content">
       {cover && (
-        <PostImage
-          link={`/posts/${titleURL}/${id}`}
-          src={image}
-          alt={`Cover image for ${title}`}
-        />
+        <PostImage link={`/posts/${titleURL}/${id}`} src={image} alt={`Cover image for ${title}`} />
       )}
-      <div className='preview__author'>
+      <div className="preview__author">
         <Avatar link={`/users/${author.id}`} src={author.avatar} />
-        <AuthorInfo status='preview' author={author} date={createdAt} />
+        <AuthorInfo status="preview" author={author} date={createdAt} />
       </div>
-      <div className='preview__details flow-content'>
-        <Link to={`/posts/${titleURL}/${id}`} className='title-link'>
+      <div className="preview__details flow-content">
+        <Link to={`/posts/${titleURL}/${id}`} className="title-link">
           <h2>{title}</h2>
         </Link>
         <PostTags tags={tags} />

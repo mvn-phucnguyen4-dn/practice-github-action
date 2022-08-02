@@ -6,16 +6,13 @@ import { CommentContext } from '../Comments';
 import { DeleteCommentButton } from './DeleteCommentButton';
 
 export const DeleteComment = ({ commentId, authorId }) => {
-  const { setActiveComment, comments, setComments } =
-    useContext(CommentContext);
+  const { setActiveComment, comments, setComments } = useContext(CommentContext);
   const { currentUser } = useContext(AuthContext);
   const currentUserId = currentUser && currentUser.userId;
   const { sendReq, error, clearError } = useHttpClient();
 
   const deleteComment = async (commentId) => {
-    const updatedComments = comments.filter(
-      (comment) => comment.id !== commentId
-    );
+    const updatedComments = comments.filter((comment) => comment.id !== commentId);
 
     try {
       await sendReq(
@@ -24,7 +21,7 @@ export const DeleteComment = ({ commentId, authorId }) => {
         JSON.stringify({ author: currentUserId }),
         {
           'Content-Type': 'application/json',
-          Authorization: `Bearer ${currentUser.token}`,
+          Authorization: `Bearer ${currentUser.token}`
         }
       );
     } catch (err) {}

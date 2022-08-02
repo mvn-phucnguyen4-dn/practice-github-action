@@ -19,7 +19,7 @@ const Notifications = ({ user, userFollowStats }) => {
           'GET',
           null,
           {
-            Authorization: `Bearer ${currentUser.token}`,
+            Authorization: `Bearer ${currentUser.token}`
           }
         );
         setNotifications(responseData.notifications);
@@ -37,20 +37,16 @@ const Notifications = ({ user, userFollowStats }) => {
   return (
     <>
       <ErrorModal error={error} onClose={clearError} />
-      <div className='container container-notif-page'>
+      <div className="container container-notif-page">
         {isLoading ? (
-          <SkeletonPostList type='mini' />
+          <SkeletonPostList type="mini" />
         ) : (
           <>
-            <h3 className='notif__heading'>Notifications</h3>
-            <div className='notifications'>
+            <h3 className="notif__heading">Notifications</h3>
+            <div className="notifications">
               {notifications && notifications.length > 0 ? (
                 notifications.map((notification) => (
-                  <Notification
-                    key={notification.id}
-                    user={user}
-                    notification={notification}
-                  />
+                  <Notification key={notification.id} user={user} notification={notification} />
                 ))
               ) : (
                 <p>No notifications found!</p>

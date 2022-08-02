@@ -7,16 +7,10 @@ import './PostReactions.css';
 
 const PostReactions = ({ post, setShowModal, handleInteraction }) => {
   const { likes, unicorns, bookmarks, id, author } = post;
-  const { state, handleReaction } = usePostReaction(
-    likes,
-    unicorns,
-    bookmarks,
-    id,
-    author
-  );
+  const { state, handleReaction } = usePostReaction(likes, unicorns, bookmarks, id, author);
   const { isLiked, isUnicorned, isBookmarked } = state;
   return (
-    <div className='post__reactions'>
+    <div className="post__reactions">
       <LikePost
         likes={likes}
         isLiked={isLiked}

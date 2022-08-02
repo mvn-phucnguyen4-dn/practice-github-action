@@ -10,8 +10,8 @@ const LikeIcon = ({ state, color, size }) => {
     <Heart
       size={size}
       color={color}
-      fill='currentColor'
-      stroke='currentColor'
+      fill="currentColor"
+      stroke="currentColor"
       style={{ cursor: 'pointer' }}
     />
   );
@@ -23,8 +23,8 @@ const BookmarkIcon = ({ state, color, size }) => {
     <Bookmark
       size={size}
       color={color}
-      fill='currentColor'
-      stroke='currentColor'
+      fill="currentColor"
+      stroke="currentColor"
       style={{ cursor: 'pointer' }}
     />
   );

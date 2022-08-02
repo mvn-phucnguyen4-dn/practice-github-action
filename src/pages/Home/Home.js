@@ -13,10 +13,8 @@ const Home = () => {
   useEffect(() => {
     const fetchPosts = async () => {
       try {
-        console.log(process.env.REACT_APP_BASE_URL)
-        const responseData = await sendReq(
-          `${process.env.REACT_APP_BASE_URL}/tags/home`
-        );
+        console.log(process.env.REACT_APP_BASE_URL);
+        const responseData = await sendReq(`${process.env.REACT_APP_BASE_URL}/tags/home`);
         setTags(responseData.tags);
       } catch (err) {}
     };
@@ -24,8 +22,8 @@ const Home = () => {
   }, [sendReq]);
 
   return (
-    <div className='container-layout'>
-      <div className='container-sidebar'>
+    <div className="container-layout">
+      <div className="container-sidebar">
         <LeftSideBar />
       </div>
       <Posts cover={true} />

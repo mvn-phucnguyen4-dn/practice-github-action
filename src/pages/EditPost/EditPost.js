@@ -14,8 +14,7 @@ const EditPost = () => {
   const [loadedPost, setLoadedPost] = useState({});
   const { postId, titleURL } = useParams();
   const history = useHistory();
-  const { renderFormInputs, renderFormValues, setForm, isFormValid } =
-    useForm(editPostForm);
+  const { renderFormInputs, renderFormValues, setForm, isFormValid } = useForm(editPostForm);
   let formValues = renderFormValues();
   let formInputs = renderFormInputs();
 
@@ -46,7 +45,7 @@ const EditPost = () => {
         'PATCH',
         formData,
         {
-          Authorization: `Bearer ${currentUser.token}`,
+          Authorization: `Bearer ${currentUser.token}`
         }
       );
       history.push(`/posts/${titleURL}/${postId}`);
@@ -57,17 +56,17 @@ const EditPost = () => {
     <>
       <ErrorModal error={error} onClose={clearError} />
 
-      <div className='container-edit-page'>
+      <div className="container-edit-page">
         {isLoading ? (
           <SkeletonForm />
         ) : (
-          <form className='form form__edit'>
+          <form className="form form__edit">
             <h2>Edit Post</h2>
             {!isLoading && loadedPost.image && loadedPost.body && formInputs}
             <button
-              type='button'
+              type="button"
               onClick={postSubmitHandle}
-              className='btn btn-submit'
+              className="btn btn-submit"
               disabled={!isFormValid()}
             >
               Update Post

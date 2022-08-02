@@ -14,14 +14,14 @@ const Input = (props) => {
     errorMessage,
     isValid,
     value,
-    touched,
+    touched
   } = props;
 
   const element =
     elementType === 'input' ? (
       <>
         <input
-          className='form__input'
+          className="form__input"
           type={type}
           name={name}
           id={id}
@@ -37,7 +37,7 @@ const Input = (props) => {
         id={id}
         type={type}
         name={name}
-        className='form__textarea'
+        className="form__textarea"
         rows={rows || 3}
         onChange={handleChange}
         // onBlur={handleBlur}
@@ -45,14 +45,12 @@ const Input = (props) => {
       />
     );
   return (
-    <div className='form__group'>
-      <label htmlFor={name} className='form__label'>
+    <div className="form__group">
+      <label htmlFor={name} className="form__label">
         {label}
       </label>
       {element}
-      {!touched && errorMessage && !isValid && (
-        <span className='input__error'>{errorMessage}</span>
-      )}
+      {!touched && errorMessage && !isValid && <span className="input__error">{errorMessage}</span>}
     </div>
   );
 };

@@ -7,8 +7,8 @@ export const SkeletonTags = () => {
   return (
     <>
       {renderRepeatedSkeletons(
-        <div className='skeleton__tag-item'>
-          {renderRepeatedSkeletons(<SkeletonElement type='text' />, 4)}
+        <div className="skeleton__tag-item">
+          {renderRepeatedSkeletons(<SkeletonElement type="text" />, 4)}
         </div>,
         10
       )}

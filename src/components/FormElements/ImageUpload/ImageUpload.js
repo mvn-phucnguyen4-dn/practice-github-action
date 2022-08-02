@@ -44,25 +44,21 @@ const ImageUpload = (props) => {
     filePickerRef.current.click();
   };
   return (
-    <div className='form__image'>
+    <div className="form__image">
       <input
         id={props.id}
         ref={filePickerRef}
         style={{ display: 'none' }}
-        type='file'
-        accept='.jpg,.png,.jpeg'
+        type="file"
+        accept=".jpg,.png,.jpeg"
         onChange={pickedHandler}
       />
       <div className={`image-upload ${props.center && 'center'}`}>
-        <div className='image-upload__preview'>
-          {previewURL && <img src={previewURL} alt='preview' />}
+        <div className="image-upload__preview">
+          {previewURL && <img src={previewURL} alt="preview" />}
           {!previewURL && <p>Please pick an image</p>}
         </div>
-        <button
-          type='button'
-          className='btn btn-upload'
-          onClick={pickImageHandler}
-        >
+        <button type="button" className="btn btn-upload" onClick={pickImageHandler}>
           Choose image
         </button>
       </div>

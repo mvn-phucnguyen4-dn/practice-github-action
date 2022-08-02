@@ -27,7 +27,7 @@ export const useHttpClient = () => {
           body,
           headers,
           signal: httpAbortCtrl.signal, //assign abortCtrl to a req
-          credentials,
+          credentials
         });
         const responseData = await response.json(); //parse the response body
 
@@ -48,7 +48,7 @@ export const useHttpClient = () => {
         setIsLoading(false);
         return responseData; //for our component
       } catch (err) {
-        console.log(err)
+        console.log(err);
         setError(err.message || 'Something went wrong...');
         setIsLoading(false);
         throw err;

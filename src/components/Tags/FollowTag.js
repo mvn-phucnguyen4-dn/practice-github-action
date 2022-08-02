@@ -30,7 +30,7 @@ export const FollowTag = ({ followers, tagId, setShowModal }) => {
         JSON.stringify(reqData),
         {
           Authorization: `Bearer ${currentUser.token}`,
-          'Content-Type': 'application/json',
+          'Content-Type': 'application/json'
         }
       );
       const { followedTags } = responseData.user;

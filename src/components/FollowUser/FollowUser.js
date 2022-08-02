@@ -5,12 +5,7 @@ import useHttpClient from '../../hooks/useHttpClient';
 import { checkInArray } from '../../utils';
 import './FollowUser.css';
 
-export const FollowUser = ({
-  followId,
-  setShowModal,
-  followers,
-  userToFollow,
-}) => {
+export const FollowUser = ({ followId, setShowModal, followers, userToFollow }) => {
   const { currentUser } = useContext(AuthContext);
   const { current } = useContext(SocketContext).socket;
   const currentUserId = currentUser && currentUser.userId;
@@ -32,7 +27,7 @@ export const FollowUser = ({
     if (action === 'follow') {
       current.emit('follow', {
         sender: currentUser,
-        receiver: userToFollow,
+        receiver: userToFollow
       });
     }
     const reqData = { userId: currentUserId, followId };
@@ -43,7 +38,7 @@ export const FollowUser = ({
         JSON.stringify(reqData),
         {
           Authorization: `Bearer ${currentUser.token}`,
-          'Content-Type': 'application/json',
+          'Content-Type': 'application/json'
         }
       );
       //redirect user to the landing page

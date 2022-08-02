@@ -11,9 +11,7 @@ const Tags = () => {
   useEffect(() => {
     const fetchTags = async () => {
       try {
-        const responseData = await sendReq(
-          `${process.env.REACT_APP_BASE_URL}/tags/`
-        );
+        const responseData = await sendReq(`${process.env.REACT_APP_BASE_URL}/tags/`);
         setLoadedTags(responseData.tags);
       } catch (err) {}
     };

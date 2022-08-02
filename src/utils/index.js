@@ -2,18 +2,13 @@ export const checkInArray = (arr, elem) => {
   return arr && arr.indexOf(elem) !== -1;
 };
 
-export const canModifyComment = (currentUserId, authorId) =>
-  currentUserId === authorId;
+export const canModifyComment = (currentUserId, authorId) => currentUserId === authorId;
 export const canReply = (currentUserId) => !!currentUserId;
 export const isReplying = (activeComment, commentId) =>
-  activeComment &&
-  activeComment.type === 'replying' &&
-  activeComment.id === commentId;
+  activeComment && activeComment.type === 'replying' && activeComment.id === commentId;
 
 export const isEditing = (activeComment, commentId) =>
-  activeComment &&
-  activeComment.type === 'editing' &&
-  activeComment.id === commentId;
+  activeComment && activeComment.type === 'editing' && activeComment.id === commentId;
 
 export const readingTime = (body) => {
   const wpm = 225;

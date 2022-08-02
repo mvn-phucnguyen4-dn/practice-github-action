@@ -8,8 +8,8 @@ const SkeletonForm = ({ type }) => {
   return (
     <>
       {renderAlternateSkeletons(
-        <SkeletonElement type='span' />,
-        <SkeletonElement type='text' />,
+        <SkeletonElement type="span" />,
+        <SkeletonElement type="text" />,
         20
       )}
       <Shimmer />

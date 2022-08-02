@@ -28,9 +28,7 @@ const useSearch = () => {
   const list = async (params) => {
     const query = queryString.stringify(params);
     try {
-      const responseData = await sendReq(
-        `${process.env.REACT_APP_BASE_URL}/posts/search?${query}`
-      );
+      const responseData = await sendReq(`${process.env.REACT_APP_BASE_URL}/posts/search?${query}`);
       return responseData.posts;
     } catch (err) {
       console.log(err);

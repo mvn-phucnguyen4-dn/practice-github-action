@@ -8,9 +8,7 @@ const Posts = ({ cover }) => {
   useEffect(() => {
     const fetchPosts = async () => {
       try {
-        const responseData = await sendReq(
-          `${process.env.REACT_APP_BASE_URL}/posts`
-        );
+        const responseData = await sendReq(`${process.env.REACT_APP_BASE_URL}/posts`);
         setLoadedPosts(responseData.posts);
       } catch (err) {}
     };
@@ -20,9 +18,7 @@ const Posts = ({ cover }) => {
   return (
     <>
       <ErrorModal error={error} onClose={clearError} />
-      {loadedPosts && (
-        <PostList isLoading={isLoading} items={loadedPosts} cover={cover} />
-      )}
+      {loadedPosts && <PostList isLoading={isLoading} items={loadedPosts} cover={cover} />}
     </>
   );
 };

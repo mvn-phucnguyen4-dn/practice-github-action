@@ -25,43 +25,43 @@ const MainRouter = ({ token }) => {
       <>
         <MainNavigation />
         <Switch>
-          <Route path='/' exact>
+          <Route path="/" exact>
             <Home />
           </Route>
-          <Route path='/users/:userId' exact>
+          <Route path="/users/:userId" exact>
             <UserProfile />
           </Route>
-          <Route path='/users/:userId/edit' exact>
+          <Route path="/users/:userId/edit" exact>
             <EditUserProfile />
           </Route>
-          <Route path='/users/:userId/readinglist' exact>
+          <Route path="/users/:userId/readinglist" exact>
             <ReadingList />
           </Route>
-          <Route path='/users/:userId/notifications' exact>
+          <Route path="/users/:userId/notifications" exact>
             <Notifications />
           </Route>
-          <Route path='/auth' exact>
+          <Route path="/auth" exact>
             <Auth newUser={false} />
           </Route>
-          <Route path='/tags' exact>
+          <Route path="/tags" exact>
             <Tags />
           </Route>
-          <Route path='/tags/:tagName' exact>
+          <Route path="/tags/:tagName" exact>
             <Tag />
           </Route>
-          <Route path='/search/' exact>
+          <Route path="/search/" exact>
             <SearchResults />
           </Route>
-          <Route path='/posts/new' exact>
+          <Route path="/posts/new" exact>
             <NewPost />
           </Route>
-          <Route path='/posts/:titleURL/:postId' exact>
+          <Route path="/posts/:titleURL/:postId" exact>
             <Post />
           </Route>
-          <Route path='/posts/:titleURL/:postId/edit' exact>
+          <Route path="/posts/:titleURL/:postId/edit" exact>
             <EditPost />
           </Route>
-          <Redirect to='/auth' />
+          <Redirect to="/auth" />
         </Switch>
         <Footer />
       </>
@@ -71,31 +71,31 @@ const MainRouter = ({ token }) => {
       <>
         <MainNavigation />
         <Switch>
-          <Route path='/' exact>
+          <Route path="/" exact>
             <Home />
           </Route>
-          <Route path='/auth/new-user' exact>
+          <Route path="/auth/new-user" exact>
             <Auth newUser={true} />
           </Route>
-          <Route path='/auth' exact>
+          <Route path="/auth" exact>
             <Auth newUser={false} />
           </Route>
-          <Route path='/tags' exact>
+          <Route path="/tags" exact>
             <Tags />
           </Route>
-          <Route path='/tags/:tagName' exact>
+          <Route path="/tags/:tagName" exact>
             <Tag />
           </Route>
-          <Route path='/search/' exact>
+          <Route path="/search/" exact>
             <SearchResults />
           </Route>
-          <Route path='/users/:userId' exact>
+          <Route path="/users/:userId" exact>
             <UserProfile />
           </Route>
-          <Route path='/posts/:titleURL/:postId' exact>
+          <Route path="/posts/:titleURL/:postId" exact>
             <Post />
           </Route>
-          <Redirect to='/auth' />
+          <Redirect to="/auth" />
         </Switch>
         <Footer />
       </>

@@ -11,8 +11,7 @@ import './Auth.css';
 import ErrorModal from '../../components/Modal/ErrorModal';
 
 const Auth = ({ newUser }) => {
-  const { renderFormInputs, renderFormValues, isFormValid, setForm } =
-    useForm(signupForm);
+  const { renderFormInputs, renderFormValues, isFormValid, setForm } = useForm(signupForm);
 
   useEffect(() => {
     if (!newUser) {
@@ -33,16 +32,16 @@ const Auth = ({ newUser }) => {
   //handle google auth
   const handleGoogleAuth = async (googleData) => {
     //getting tokenID from GLogin
-    console.log(googleData, "User in authen")
+    console.log(googleData, 'User in authen');
     const token = await googleData.getIdToken();
     const responseData = await sendReq(
       `${process.env.REACT_APP_BASE_URL}/users/auth/google`,
       'POST',
       JSON.stringify({
-        tokenId: token,
+        tokenId: token
       }),
       {
-        'Content-Type': 'application/json', //inform backend the type of data being sent
+        'Content-Type': 'application/json' //inform backend the type of data being sent
       }
     );
     let { user } = responseData;
@@ -50,7 +49,7 @@ const Auth = ({ newUser }) => {
     login(user); //log the user in
     history.push('/');
   };
-  
+
   const handleAuthSubmit = async (evt) => {
     evt.preventDefault();
     try {
@@ -68,7 +67,7 @@ const Auth = ({ newUser }) => {
           'POST',
           JSON.stringify(formValues),
           {
-            'Content-Type': 'application/json',
+            'Content-Type': 'application/json'
           }
         );
       }
@@ -80,31 +79,27 @@ const Auth = ({ newUser }) => {
   return (
     <>
       <ErrorModal error={error} onClose={clearError} />
-      <div className='container container-auth'>
+      <div className="container container-auth">
         <Welcome />
-        <div className='auth__social'>
+        <div className="auth__social">
           <GLogin onLogin={handleGoogleAuth} />
         </div>
 
-        <form className='form__auth'>
-          <div className='form__options'>
+        <form className="form__auth">
+          <div className="form__options">
             <p>Or</p>
-            <h2>
-              {newUser
-                ? 'Create a New Account'
-                : 'Log in using an Existing Account'}
-            </h2>
+            <h2>{newUser ? 'Create a New Account' : 'Log in using an Existing Account'}</h2>
             {formInputs}
 
             <button
               onClick={handleAuthSubmit}
-              className='btn btn__auth btn__auth--mode'
+              className="btn btn__auth btn__auth--mode"
               disabled={!isFormValid()}
             >
               {newUser ? 'Create account' : 'Login'}
             </button>
             <Link
-              className='btn btn__auth btn__auth--switch'
+              className="btn btn__auth btn__auth--switch"
               to={newUser ? '/auth' : '/auth/new-user'}
             >
               {newUser ? 'Login' : 'Create account'}

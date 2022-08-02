@@ -4,11 +4,7 @@ import { AuthContext } from '../../../context/auth';
 import { LoggedInNavLinks } from './LoggedInNavLinks';
 import { GuestNavLinks } from './GuestNavLinks';
 
-const NavLinks = ({
-  onSearchIconClick,
-  unreadNotifications,
-  setUnreadNotifications,
-}) => {
+const NavLinks = ({ onSearchIconClick, unreadNotifications, setUnreadNotifications }) => {
   const { isLoggedIn, currentUser, logout } = useContext(AuthContext);
 
   const handleSearchClick = () => {
@@ -16,10 +12,10 @@ const NavLinks = ({
   };
 
   return (
-    <ul className='nav__list'>
+    <ul className="nav__list">
       <li>
-        <i className='search-icon'>
-          <FiSearch size='2.5rem' onClick={handleSearchClick} />
+        <i className="search-icon">
+          <FiSearch size="2.5rem" onClick={handleSearchClick} />
         </i>
       </li>
 

@@ -7,8 +7,7 @@ import CommentForm from './CommentForm';
 import { CommentContext } from '../Comments';
 
 export const NewComment = ({ replyId }) => {
-  const { setActiveComment, setComments, postId, postAuthor } =
-    useContext(CommentContext);
+  const { setActiveComment, setComments, postId, postAuthor } = useContext(CommentContext);
   const { currentUser } = useContext(AuthContext);
   const { socket } = useContext(SocketContext);
   const { sendReq, error, clearError } = useHttpClient();
@@ -19,7 +18,7 @@ export const NewComment = ({ replyId }) => {
       body: text,
       author: currentUserId,
       parentId,
-      userId: currentUserId,
+      userId: currentUserId
     };
     try {
       const newComment = await sendReq(
@@ -28,7 +27,7 @@ export const NewComment = ({ replyId }) => {
         JSON.stringify(reqData),
         {
           Authorization: `Bearer ${currentUser.token}`,
-          'Content-Type': 'application/json',
+          'Content-Type': 'application/json'
         }
       );
       setComments((comments = []) => [newComment.comment, ...comments]);
@@ -38,7 +37,7 @@ export const NewComment = ({ replyId }) => {
         socket.current.emit('comment', {
           sender: currentUser,
           postId,
-          receiver: postAuthor,
+          receiver: postAuthor
         });
       }
     } catch (err) {}

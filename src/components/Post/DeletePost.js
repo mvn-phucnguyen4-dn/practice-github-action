@@ -1,8 +1,5 @@
 import React, { useContext, useState } from 'react';
-import {
-  useHistory,
-  useParams,
-} from 'react-router-dom/cjs/react-router-dom.min';
+import { useHistory, useParams } from 'react-router-dom/cjs/react-router-dom.min';
 import { AuthContext } from '../../context/auth';
 import useHttpClient from '../../hooks/useHttpClient';
 import DeletionModal from '../Modal/DeletionModal';
@@ -36,7 +33,7 @@ export const DeletePost = ({ authorId }) => {
         JSON.stringify({ author: currentUserId }),
         {
           'Content-Type': 'application/json',
-          Authorization: `Bearer ${currentUser.token}`,
+          Authorization: `Bearer ${currentUser.token}`
         }
       );
       history.push('/');
@@ -53,7 +50,7 @@ export const DeletePost = ({ authorId }) => {
         confirmDeleteHandler={confirmDeleteWarningHandler}
       />
       {currentUserId === authorId && (
-        <button className='btn auth__delete' onClick={showDeleteWarningHandler}>
+        <button className="btn auth__delete" onClick={showDeleteWarningHandler}>
           Delete Post
         </button>
       )}

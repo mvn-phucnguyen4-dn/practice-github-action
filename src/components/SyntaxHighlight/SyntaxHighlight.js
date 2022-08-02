@@ -9,14 +9,14 @@ const SyntaxHighlight = {
       <SyntaxHighlighter
         style={oneDark}
         language={match[1]}
-        PreTag='div'
-        className='codeStyle'
+        PreTag="div"
+        className="codeStyle"
         {...props}
       />
     ) : (
       <code className={className} {...props} />
     );
-  },
+  }
 };
 
 export default SyntaxHighlight;

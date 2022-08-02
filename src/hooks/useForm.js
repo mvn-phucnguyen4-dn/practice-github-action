@@ -8,14 +8,7 @@ const useForm = (formObj) => {
     //renders an [] of <Input> for all input fields
     return Object.values(form).map((inputObj) => {
       const { value, label, errorMessage, valid, renderInput } = inputObj;
-      return renderInput(
-        onInputChange,
-        value,
-        valid,
-        errorMessage,
-        label,
-        onCustomInputChange
-      );
+      return renderInput(onInputChange, value, valid, errorMessage, label, onCustomInputChange);
     });
   };
 
@@ -60,7 +53,7 @@ const useForm = (formObj) => {
     (type, value, InputIsValid) => {
       setForm({
         ...form,
-        [type]: { ...form[type], value, valid: InputIsValid },
+        [type]: { ...form[type], value, valid: InputIsValid }
       });
     },
     [form]
@@ -85,7 +78,7 @@ const useForm = (formObj) => {
     renderFormInputs,
     renderFormValues,
     isFormValid,
-    setForm,
+    setForm
   };
 };
 

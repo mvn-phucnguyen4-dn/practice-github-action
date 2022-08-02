@@ -7,41 +7,41 @@ import './UserInfo.css';
 
 export const UserInfo = ({ user }) => {
   return (
-    <div className='user__info'>
+    <div className="user__info">
       {user.bio && (
-        <div className='info__bio'>
+        <div className="info__bio">
           <p>{user.bio}</p>
         </div>
       )}
-      <div className='info__other'>
+      <div className="info__other">
         {user.location && (
-          <div className='user__location'>
+          <div className="user__location">
             <i>
-              <GoLocation size='2.5rem' />
+              <GoLocation size="2.5rem" />
             </i>
             <p>{user.location}</p>
           </div>
         )}
         {user.links && (
-          <div className='user__links'>
+          <div className="user__links">
             <i>
-              <GrMail size='2.5rem' />
+              <GrMail size="2.5rem" />
             </i>
             <p>{user.links}</p>
           </div>
         )}
         {user.work && (
-          <div className='user__work'>
+          <div className="user__work">
             <i>
-              <MdWork size='2.5rem' />
+              <MdWork size="2.5rem" />
             </i>
             <p>{user.work}</p>
           </div>
         )}
         {user.doB && (
-          <div className='user__doB'>
+          <div className="user__doB">
             <i>
-              <FaBirthdayCake size='2.5rem' />
+              <FaBirthdayCake size="2.5rem" />
             </i>
             <p>{user.doB}</p>
           </div>

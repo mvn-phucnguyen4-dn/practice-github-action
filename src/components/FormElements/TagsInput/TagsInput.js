@@ -39,23 +39,19 @@ export const TagsInput = (props) => {
   return (
     <>
       <h4>{props.label}</h4>
-      <div className='tags__input'>
-        <ul className='input__list'>
+      <div className="tags__input">
+        <ul className="input__list">
           {tags &&
             tags.map((tag, index) => (
-              <li className='input__item' key={index}>
+              <li className="input__item" key={index}>
                 <span>#{tag}</span>
-                <i className='input__remove'>
+                <i className="input__remove">
                   <GrFormClose onClick={() => removeTag(index)} />
                 </i>
               </li>
             ))}
         </ul>
-        <input
-          type='text'
-          placeholder='Press enter to add tags'
-          onKeyUp={addTag}
-        />
+        <input type="text" placeholder="Press enter to add tags" onKeyUp={addTag} />
       </div>
     </>
   );

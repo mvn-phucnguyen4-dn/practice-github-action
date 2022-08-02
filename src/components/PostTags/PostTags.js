@@ -4,10 +4,10 @@ import { getRandomColor } from '../../utils';
 
 export const PostTags = ({ tags }) => {
   return (
-    <ul className='preview__tags'>
+    <ul className="preview__tags">
       {tags &&
         tags.map((tag, i) => (
-          <li key={i} className='preview__tag preview__tag--post'>
+          <li key={i} className="preview__tag preview__tag--post">
             <Link to={`/tags/${tag.name}`}>
               <span style={{ color: getRandomColor() }}>#</span>
               {tag.name}

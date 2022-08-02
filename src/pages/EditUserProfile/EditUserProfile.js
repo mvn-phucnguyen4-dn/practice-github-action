@@ -6,16 +6,12 @@ import useForm from '../../hooks/useForm';
 import ErrorModal from '../../components/Modal/ErrorModal';
 import SkeletonForm from '../../components/Skeleton/SkeletonForm';
 
-import {
-  editProfileForm,
-  prefillEditProfileForm,
-} from '../../utils/formConfig';
+import { editProfileForm, prefillEditProfileForm } from '../../utils/formConfig';
 import { appendData } from '../../utils';
 
 const EditUserProfile = () => {
   const [user, setUser] = useState({});
-  const { renderFormInputs, renderFormValues, setForm } =
-    useForm(editProfileForm);
+  const { renderFormInputs, renderFormValues, setForm } = useForm(editProfileForm);
   const history = useHistory();
   const { sendReq, isLoading, error, clearError } = useHttpClient();
   const { userId } = useParams();
@@ -27,9 +23,7 @@ const EditUserProfile = () => {
   useEffect(() => {
     const fetchUser = async () => {
       try {
-        const responseData = await sendReq(
-          `${process.env.REACT_APP_BASE_URL}/users/${userId}`
-        );
+        const responseData = await sendReq(`${process.env.REACT_APP_BASE_URL}/users/${userId}`);
         // if (currentUser.userId !== responseData.user.id) {
         //   history.push("/");
         // }
@@ -50,7 +44,7 @@ const EditUserProfile = () => {
         'PATCH',
         formData,
         {
-          Authorization: `Bearer ${currentUser.token}`,
+          Authorization: `Bearer ${currentUser.token}`
         }
       );
       const { name, bio, email, profilePic } = responseData.user;
@@ -63,14 +57,14 @@ const EditUserProfile = () => {
   return (
     <>
       <ErrorModal error={error} onClose={clearError} />
-      <div className='container-edit-page'>
+      <div className="container-edit-page">
         {isLoading ? (
           <SkeletonForm />
         ) : (
-          <form className='form form__edit' onSubmit={infoSubmitHandle}>
+          <form className="form form__edit" onSubmit={infoSubmitHandle}>
             <h2>Edit Profile</h2>
             {!isLoading && user.avatar && formInputs}
-            <button onClick={infoSubmitHandle} className='btn btn-submit'>
+            <button onClick={infoSubmitHandle} className="btn btn-submit">
               Update Profile
             </button>
           </form>

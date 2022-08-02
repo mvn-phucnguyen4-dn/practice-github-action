@@ -15,13 +15,13 @@ const AppProviders = ({ children }) => {
 
   useEffect(() => {
     if (!socket.current) {
-      console.log(process.env.REACT_APP_SOCKET_IO_URL, "SOCKET")
+      console.log(process.env.REACT_APP_SOCKET_IO_URL, 'SOCKET');
       socket.current = io(process.env.REACT_APP_SOCKET_IO_URL);
     }
 
     if (socket.current && userId) {
       socket.current.emit('join', {
-        userId: userId,
+        userId: userId
       });
     }
   }, [socket, userId]);
@@ -33,7 +33,7 @@ const AppProviders = ({ children }) => {
         login,
         logout,
         currentUser: user,
-        setUser,
+        setUser
       }}
     >
       <SearchContext.Provider
@@ -41,12 +41,10 @@ const AppProviders = ({ children }) => {
           searchValue,
           setSearchValue,
           searchResults,
-          setSearchResults,
+          setSearchResults
         }}
       >
-        <SocketContext.Provider value={{ socket }}>
-          {children}
-        </SocketContext.Provider>
+        <SocketContext.Provider value={{ socket }}>{children}</SocketContext.Provider>
       </SearchContext.Provider>
     </AuthContext.Provider>
   );

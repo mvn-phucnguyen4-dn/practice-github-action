@@ -11,8 +11,8 @@ const SearchResults = (props) => {
 
   return (
     <>
-      <div className='container-posts container-search-results'>
-        <h2 className='results__heading'>Search results for "{searchValue}"</h2>
+      <div className="container-posts container-search-results">
+        <h2 className="results__heading">Search results for "{searchValue}"</h2>
         <PostList cover={false} items={searchResults} isLoading={isLoading} />
       </div>
     </>

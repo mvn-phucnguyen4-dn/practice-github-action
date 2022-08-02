@@ -8,7 +8,7 @@ export const EditCommentButton = ({ currentUserId, commentId, authorId }) => {
     <>
       {canModifyComment(currentUserId, authorId) && (
         <button
-          className='btn auth__edit'
+          className="btn auth__edit"
           onClick={() => setActiveComment({ id: commentId, type: 'editing' })}
         >
           Edit

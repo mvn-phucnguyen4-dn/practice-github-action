@@ -3,30 +3,13 @@ import TagsInput from '../components/FormElements/TagsInput/TagsInput';
 import { BodyInput } from '../components/FormElements/BodyInput/BodyInput';
 import ImageUpload from '../components/FormElements/ImageUpload/ImageUpload';
 import Input from '../components/FormElements/Input/Input';
-import {
-  maxLengthRule,
-  minLengthRule,
-  requiredRule,
-} from './inputValidationRules';
+import { maxLengthRule, minLengthRule, requiredRule } from './inputValidationRules';
 
-const createFormFieldConfig = (
-  label,
-  name,
-  type,
-  elementType = 'input',
-  defaultValue = ''
-) => {
+const createFormFieldConfig = (label, name, type, elementType = 'input', defaultValue = '') => {
   //return an obj representing a single input
   return {
     //render a given input
-    renderInput: (
-      handleChange,
-      value,
-      isValid,
-      error,
-      key,
-      onCustomInputChange
-    ) => {
+    renderInput: (handleChange, value, isValid, error, key, onCustomInputChange) => {
       if (label === 'Image' || label === 'Avatar') {
         return (
           <ImageUpload
@@ -39,19 +22,10 @@ const createFormFieldConfig = (
         );
       }
       if (label === 'Body') {
-        return (
-          <BodyInput key='Body' value={value} onChange={onCustomInputChange} />
-        );
+        return <BodyInput key="Body" value={value} onChange={onCustomInputChange} />;
       }
       if (label === 'Tags') {
-        return (
-          <TagsInput
-            key='Tags'
-            label={label}
-            tags={value}
-            onChange={onCustomInputChange}
-          />
-        );
+        return <TagsInput key="Tags" label={label} tags={value} onChange={onCustomInputChange} />;
       }
 
       return (
@@ -75,7 +49,7 @@ const createFormFieldConfig = (
     value: defaultValue,
     valid: false,
     errorMessage: '',
-    touched: false,
+    touched: false
   };
 };
 
@@ -85,36 +59,32 @@ const createFormFieldConfig = (
 export const signupForm = {
   name: {
     ...createFormFieldConfig('Full Name', 'name', 'text'),
-    validationRules: [
-      requiredRule('name'),
-      minLengthRule('name', 3),
-      maxLengthRule('name', 25),
-    ],
-    key: '1',
+    validationRules: [requiredRule('name'), minLengthRule('name', 3), maxLengthRule('name', 25)],
+    key: '1'
   },
   email: {
     ...createFormFieldConfig('Email', 'email', 'email'),
     validationRules: [
       requiredRule('email'),
       minLengthRule('email', 10),
-      maxLengthRule('email', 25),
+      maxLengthRule('email', 25)
     ],
-    key: '2',
+    key: '2'
   },
   password: {
     ...createFormFieldConfig('Password', 'password', 'password'),
     validationRules: [
       requiredRule('password'),
       minLengthRule('password', 6),
-      maxLengthRule('password', 20),
+      maxLengthRule('password', 20)
     ],
-    key: '3',
+    key: '3'
   },
   avatar: {
     ...createFormFieldConfig('Avatar', 'avatar', 'file'),
     validationRules: [requiredRule('avatar')],
-    key: '1',
-  },
+    key: '1'
+  }
 };
 
 //create login form out of signup form
@@ -132,78 +102,78 @@ export const loginForm = createLoginForm();
 export const newPostForm = {
   title: {
     ...createFormFieldConfig('Title', 'title', 'text'),
-    validationRules: [requiredRule('title')],
+    validationRules: [requiredRule('title')]
   },
   image: {
     ...createFormFieldConfig('Image', 'image', 'file'),
-    validationRules: [requiredRule('image')],
+    validationRules: [requiredRule('image')]
   },
   body: {
     ...createFormFieldConfig('Body', 'body', 'text'),
-    validationRules: [requiredRule('Body')],
+    validationRules: [requiredRule('Body')]
   },
   tags: {
     ...createFormFieldConfig('Tags', 'tags', 'text'),
-    validationRules: [requiredRule('Tags')],
+    validationRules: [requiredRule('Tags')]
   },
   titleURL: {
     ...createFormFieldConfig('titleURL', 'titleURL', 'titleURL'),
-    validationRules: [requiredRule('titleURL')],
-  },
+    validationRules: [requiredRule('titleURL')]
+  }
 };
 
 export let editPostForm = {
   title: {
     ...createFormFieldConfig('Title', 'title', 'text'),
-    validationRules: [requiredRule('title')],
+    validationRules: [requiredRule('title')]
   },
   image: {
     ...createFormFieldConfig('Image', 'image', 'file'),
-    validationRules: [requiredRule('image')],
+    validationRules: [requiredRule('image')]
   },
   body: {
     ...createFormFieldConfig('Body', 'body', 'text'),
-    validationRules: [requiredRule('Body')],
+    validationRules: [requiredRule('Body')]
   },
   tags: {
     ...createFormFieldConfig('Tags', 'tags', 'text'),
-    validationRules: [requiredRule('Tags')],
+    validationRules: [requiredRule('Tags')]
   },
   titleURL: {
     ...createFormFieldConfig('titleURL', 'titleURL', 'titleURL'),
-    validationRules: [requiredRule('titleURL')],
-  },
+    validationRules: [requiredRule('titleURL')]
+  }
 };
 
 export let editProfileForm = {
   name: {
     ...createFormFieldConfig('Name', 'name', 'text'),
-    validationRules: [requiredRule('name')],
+    validationRules: [requiredRule('name')]
   },
   avatar: {
     ...createFormFieldConfig('Avatar', 'avatar', 'file'),
-    validationRules: [requiredRule('avatar')],
+    validationRules: [requiredRule('avatar')]
   },
   bio: {
     ...createFormFieldConfig('Bio', 'bio', 'text'),
-    validationRules: [requiredRule('bio')],
+    validationRules: [requiredRule('bio')]
   },
   links: {
     ...createFormFieldConfig('Social Links', 'links', 'text'),
-    validationRules: [requiredRule('links')],
+    validationRules: [requiredRule('links')]
   },
   location: {
     ...createFormFieldConfig('Location', 'location', 'text'),
-    validationRules: [requiredRule('location')],
+    validationRules: [requiredRule('location')]
   },
   work: {
     ...createFormFieldConfig('Work', 'work', 'text'),
-    validationRules: [requiredRule('work')],
+    validationRules: [requiredRule('work')]
   },
   skills: {
     ...createFormFieldConfig('Skills', 'skills', 'text'),
-    validationRules: [requiredRule('skills')],
-  },
+    validationRules: [requiredRule('skills')]
+  }
 };
 
 export const prefillEditPostForm = (data) => {
@@ -216,12 +186,12 @@ export const prefillEditPostForm = (data) => {
         });
         editPostForm = {
           ...editPostForm,
-          [key]: { ...editPostForm[key], value: tags, valid: true },
+          [key]: { ...editPostForm[key], value: tags, valid: true }
         };
       } else {
         editPostForm = {
           ...editPostForm,
-          [key]: { ...editPostForm[key], value, valid: true },
+          [key]: { ...editPostForm[key], value, valid: true }
         };
       }
     }
@@ -233,7 +203,7 @@ export const prefillEditProfileForm = (data) => {
     if (key in editProfileForm) {
       editProfileForm = {
         ...editProfileForm,
-        [key]: { ...editProfileForm[key], value, valid: true },
+        [key]: { ...editProfileForm[key], value, valid: true }
       };
     }
   }

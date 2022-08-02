@@ -16,7 +16,7 @@ const Avatar = (props) => {
   return (
     <div className={`author__image ${props.className}`}>
       {props.isLoading ? (
-        <SkeletonElement type='avatar' />
+        <SkeletonElement type="avatar" />
       ) : (
         <img src={props.src} alt={props.alt ? props.alt : 'avatar'} />
       )}

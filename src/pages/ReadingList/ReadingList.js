@@ -18,7 +18,7 @@ const ReadingList = () => {
           'GET',
           null,
           {
-            Authorization: `Bearer ${currentUser.token}`,
+            Authorization: `Bearer ${currentUser.token}`
           }
         );
         setLoadedPosts(responseData.posts);
@@ -29,8 +29,8 @@ const ReadingList = () => {
   return (
     <>
       <ErrorModal error={error} onClose={clearError} />
-      <div className='container-posts reading-list'>
-        <h2 className='reading-list__heading'>
+      <div className="container-posts reading-list">
+        <h2 className="reading-list__heading">
           {currentUser && `${currentUser.name}'s Reading list`}
         </h2>
 

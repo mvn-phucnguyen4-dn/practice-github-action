@@ -11,11 +11,11 @@ export const ReplyButton = ({ currentUserId, comment, setShowModal }) => {
       : setShowModal(true);
   };
   return (
-    <button className='btn comments__total' onClick={handleClick}>
+    <button className="btn comments__total" onClick={handleClick}>
       <i>
-        <FaRegComment size='2rem' />
+        <FaRegComment size="2rem" />
       </i>
-      <span className='reactions__text'>Reply</span>
+      <span className="reactions__text">Reply</span>
     </button>
   );
 };

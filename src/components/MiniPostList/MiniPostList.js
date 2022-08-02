@@ -13,11 +13,8 @@ const MiniPostList = (props) => {
         <ul>
           {props.posts &&
             props.posts.map((post, i) => (
-              <div className='post__item' key={post.id}>
-                <Link
-                  className='title-link'
-                  to={`/posts/${post.titleURL}/${post.id}`}
-                >
+              <div className="post__item" key={post.id}>
+                <Link className="title-link" to={`/posts/${post.titleURL}/${post.id}`}>
                   {post.title}
                 </Link>
               </div>

@@ -16,7 +16,7 @@ const MainNavigation = (props) => {
         <Nav onSearchIconClick={onSearchIconClick}>
           <SearchBar showSearchOnMobile={false} />
         </Nav>
-        <div className='search-mobile-container'>
+        <div className="search-mobile-container">
           <SearchBar showSearchOnMobile={showSearchOnMobile} />
         </div>
       </MainHeader>
