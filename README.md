@@ -18,7 +18,10 @@ npm install
 
 - Set up the following environment variables
 
-In .env:
+- Create a .env file from the .env.example file:
+```
+cp .env.example .env
+```
 
 ```
     REACT_APP_BASE_URL=http://localhost:5000/api
