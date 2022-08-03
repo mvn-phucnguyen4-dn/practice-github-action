@@ -1,4 +1,4 @@
-name: Building and testing
+name: buil.yml
 
 on:
   push:
@@ -26,3 +26,4 @@ jobs:
 
       - name: Check lint
         run: npm run lint
+      

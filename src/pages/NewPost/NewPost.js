@@ -13,8 +13,7 @@ const NewPost = () => {
 	const history = useHistory()
 	const { currentUser } = auth
 	const { isLoading, sendReq, error, clearError } = useHttpClient()
-	const { renderFormInputs, renderFormValues, isFormValid } =
-		useForm(newPostForm)
+	const { renderFormInputs, renderFormValues } = useForm(newPostForm)
 	const formValues = renderFormValues()
 	const formInputs = renderFormInputs()
 
