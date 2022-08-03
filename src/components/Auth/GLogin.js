@@ -7,15 +7,11 @@ import 'firebase/compat/auth';
 const GLogin = (props) => {
   const [showLoginButton, setShowLoginButton] = useState(true);
   const { setError } = useHttpClient();
-
+  
   // Configure Firebase.
   const config = {
-    apiKey: process.env.FIREBASE_API_KEY,
-<<<<<<< HEAD
-    authDomain: process.env.FIREBASE_AUTH_DOMAIN
-=======
-    authDomain: process.env.FIREBASE_AUTH_DOMAIN,
->>>>>>> a1a01d747e71ba30cf3c478415c3fcf57e957b5e
+    apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
+    authDomain: process.env.REACT_APP_FIREBASE_AUTH_DOMAIN
     // ...
   };
 
@@ -26,7 +22,7 @@ const GLogin = (props) => {
       if (user) {
         console.log(user, 'user in GLogin');
         props.onLogin(user);
-        setShowLoginButton(false);
+        //setShowLoginButton(false);
       } else {
         setError('Login with Google failed. Please try again!', user);
       }
@@ -43,7 +39,7 @@ const GLogin = (props) => {
     // We will display Google and Facebook as auth providers.
     signInOptions: [
       firebase.auth.GoogleAuthProvider.PROVIDER_ID,
-      firebase.auth.FacebookAuthProvider.PROVIDER_ID
+      firebase.auth.EmailAuthProvider.PROVIDER_ID
     ]
   };
   return (
