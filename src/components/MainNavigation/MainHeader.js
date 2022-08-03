@@ -1,5 +1,5 @@
-import React from 'react';
+import React from 'react'
 
-const MainHeader = (props) => <header>{props.children}</header>;
+const MainHeader = (props) => <header>{props.children}</header>
 
-export default MainHeader;
+export default MainHeader
