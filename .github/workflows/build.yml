@@ -1,4 +1,4 @@
-name: buil.yml
+name: build.yml
 
 on:
   push:
