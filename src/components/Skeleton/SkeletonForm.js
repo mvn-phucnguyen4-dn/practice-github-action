@@ -5,16 +5,16 @@ import SkeletonElement from './SkeletonElement'
 import './SkeletonElement.css'
 
 const SkeletonForm = ({ type }) => {
-	return (
-		<>
-			{renderAlternateSkeletons(
-				<SkeletonElement type='span' />,
-				<SkeletonElement type='text' />,
-				20
-			)}
-			<Shimmer />
-		</>
-	)
+  return (
+    <>
+      {renderAlternateSkeletons(
+        <SkeletonElement type="span" />,
+        <SkeletonElement type="text" />,
+        20,
+      )}
+      <Shimmer />
+    </>
+  )
 }
 
 export default SkeletonForm

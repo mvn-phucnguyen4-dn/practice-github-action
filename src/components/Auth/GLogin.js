@@ -5,58 +5,58 @@ import firebase from 'firebase/compat/app'
 import 'firebase/compat/auth'
 
 const GLogin = (props) => {
-	const [showLoginButton, setShowLoginButton] = useState(true)
-	const { setError } = useHttpClient()
+  const [showLoginButton, setShowLoginButton] = useState(true)
+  const { setError } = useHttpClient()
 
-	// Configure Firebase.
-	const config = {
-		apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
-		authDomain: process.env.REACT_APP_FIREBASE_AUTH_DOMAIN,
-		// ...
-	}
+  // Configure Firebase.
+  const config = {
+    apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
+    authDomain: process.env.REACT_APP_FIREBASE_AUTH_DOMAIN,
+    // ...
+  }
 
-	firebase.initializeApp(config)
+  firebase.initializeApp(config)
 
-	useEffect(() => {
-		console.log('login')
-		const unregisterAuthObserver = firebase
-			.auth()
-			.onAuthStateChanged(async (user) => {
-				if (user) {
-					console.log(user, 'user in GLogin')
-					const tokenId = await user.getIdToken()
-					console.log('Token', tokenId)
-					props.onLogin(user)
-					//setShowLoginButton(false);
-				} else {
-					setError('Login with Google failed. Please try again!', user)
-				}
-			})
-		return () => unregisterAuthObserver() // Make sure we un-register Firebase observers when the component unmounts.
-	}, [])
+  useEffect(() => {
+    console.log('login')
+    const unregisterAuthObserver = firebase
+      .auth()
+      .onAuthStateChanged(async (user) => {
+        if (user) {
+          console.log(user, 'user in GLogin')
+          const tokenId = await user.getIdToken()
+          console.log('Token', tokenId)
+          props.onLogin(user)
+          //setShowLoginButton(false);
+        } else {
+          setError('Login with Google failed. Please try again!', user)
+        }
+      })
+    return () => unregisterAuthObserver() // Make sure we un-register Firebase observers when the component unmounts.
+  }, [])
 
-	// Configure FirebaseUI.
-	const uiConfig = {
-		// Popup signin flow rather than redirect flow.
-		signInFlow: 'popup',
-		// Redirect to /signedIn after sign in is successful. Alternatively you can provide a callbacks.signInSuccess function.
-		signInSuccessUrl: '/auth',
-		// We will display Google and Facebook as auth providers.
-		signInOptions: [
-			firebase.auth.GoogleAuthProvider.PROVIDER_ID,
-			firebase.auth.EmailAuthProvider.PROVIDER_ID,
-		],
-	}
-	return (
-		<div className='auth__google'>
-			{showLoginButton && (
-				<StyledFirebaseAuth
-					uiConfig={uiConfig}
-					firebaseAuth={firebase.auth()}
-				/>
-			)}
-		</div>
-	)
+  // Configure FirebaseUI.
+  const uiConfig = {
+    // Popup signin flow rather than redirect flow.
+    signInFlow: 'popup',
+    // Redirect to /signedIn after sign in is successful. Alternatively you can provide a callbacks.signInSuccess function.
+    signInSuccessUrl: '/auth',
+    // We will display Google and Facebook as auth providers.
+    signInOptions: [
+      firebase.auth.GoogleAuthProvider.PROVIDER_ID,
+      firebase.auth.EmailAuthProvider.PROVIDER_ID,
+    ],
+  }
+  return (
+    <div className="auth__google">
+      {showLoginButton && (
+        <StyledFirebaseAuth
+          uiConfig={uiConfig}
+          firebaseAuth={firebase.auth()}
+        />
+      )}
+    </div>
+  )
 }
 
 export default GLogin

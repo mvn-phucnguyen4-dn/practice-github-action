@@ -4,11 +4,11 @@ import AppProviders from './components/AppProviders/AppProviders'
 import MainRouter from './MainRouter'
 
 const App = () => {
-	return (
-		<AppProviders>
-			<MainRouter />
-		</AppProviders>
-	)
+  return (
+    <AppProviders>
+      <MainRouter />
+    </AppProviders>
+  )
 }
 
 export default App
