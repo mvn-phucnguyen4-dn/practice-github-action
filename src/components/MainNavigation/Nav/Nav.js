@@ -2,7 +2,6 @@ import React, { useContext, useEffect, useState } from 'react'
 import { FaDev } from '@react-icons/all-files/fa/FaDev'
 import NavLinks from '../NavLinks/NavLinks'
 import './Nav.css'
-import { SocketContext } from '../../../context/socket'
 import SideDrawer from '../SideDrawer/SideDrawer'
 import { AuthContext } from '../../../context/auth'
 import { useHttpClient } from '../../../hooks/useHttpClient'
@@ -10,7 +9,6 @@ import { NavLink } from 'react-router-dom'
 
 const Nav = ({ children, onSearchIconClick }) => {
 	const { currentUser } = useContext(AuthContext)
-	const { current } = useContext(SocketContext).socket
 
 	let userId
 	if (currentUser) {
@@ -48,14 +46,6 @@ const Nav = ({ children, onSearchIconClick }) => {
 			fetchUnreadNotifications()
 		}
 	}, [sendReq, userId, currentUser])
-
-	useEffect(() => {
-		current?.on('notificationReceived', (data) => {
-			setUnreadNotifications((unreadNotifications) => {
-				return [...unreadNotifications, data]
-			})
-		})
-	}, [current])
 
 	return (
 		<div className='container container-nav'>

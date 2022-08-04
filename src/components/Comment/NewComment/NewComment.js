@@ -1,6 +1,5 @@
 import React, { useContext } from 'react'
 import { AuthContext } from '../../../context/auth'
-import { SocketContext } from '../../../context/socket'
 import useHttpClient from '../../../hooks/useHttpClient'
 import ErrorModal from '../../Modal/ErrorModal'
 import CommentForm from './CommentForm'
@@ -10,7 +9,6 @@ export const NewComment = ({ replyId }) => {
 	const { setActiveComment, setComments, postId, postAuthor } =
 		useContext(CommentContext)
 	const { currentUser } = useContext(AuthContext)
-	const { socket } = useContext(SocketContext)
 	const { sendReq, error, clearError } = useHttpClient()
 	const currentUserId = currentUser && currentUser.userId
 	const createComment = async (text, parentId = null) => {
@@ -32,15 +30,6 @@ export const NewComment = ({ replyId }) => {
 				}
 			)
 			setComments((comments = []) => [newComment.comment, ...comments])
-
-			// setComments((comments) => [newComment.comment, ...comments]);
-			if (socket.current) {
-				socket.current.emit('comment', {
-					sender: currentUser,
-					postId,
-					receiver: postAuthor,
-				})
-			}
 		} catch (err) {}
 		setActiveComment(null)
 	}

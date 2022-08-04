@@ -28,12 +28,6 @@ const Notifications = ({ user, userFollowStats }) => {
 		fetchNotifications()
 	}, [sendReq, currentUser.userId, currentUser])
 
-	// useEffect(() => {
-	//   if (currentUser && currentUser.userId !== userId) {
-	//     history.push('/');
-	//   }
-	// }, [history, currentUser, userId]);
-
 	return (
 		<>
 			<ErrorModal error={error} onClose={clearError} />

@@ -26,4 +26,3 @@ jobs:
 
       - name: Check lint
         run: npm run lint
-      

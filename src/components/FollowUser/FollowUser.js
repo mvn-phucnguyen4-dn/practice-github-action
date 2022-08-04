@@ -1,6 +1,5 @@
 import React, { useContext, useEffect, useState } from 'react'
 import { AuthContext } from '../../context/auth'
-import { SocketContext } from '../../context/socket'
 import useHttpClient from '../../hooks/useHttpClient'
 import { checkInArray } from '../../utils'
 import './FollowUser.css'
@@ -12,7 +11,6 @@ export const FollowUser = ({
 	userToFollow,
 }) => {
 	const { currentUser } = useContext(AuthContext)
-	const { current } = useContext(SocketContext).socket
 	const currentUserId = currentUser && currentUser.userId
 	const { sendReq } = useHttpClient()
 
@@ -29,12 +27,6 @@ export const FollowUser = ({
 	const followUser = async (followId) => {
 		let action = following ? 'unfollow' : 'follow'
 		setFollowing((following) => !following)
-		if (action === 'follow') {
-			current.emit('follow', {
-				sender: currentUser,
-				receiver: userToFollow,
-			})
-		}
 		const reqData = { userId: currentUserId, followId }
 		try {
 			await sendReq(

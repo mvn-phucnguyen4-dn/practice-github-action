@@ -19,6 +19,7 @@ npm install
 - Set up the following environment variables
 
 - Create a .env file from the .env.example file:
+
 ```
 cp .env.example .env
 ```
