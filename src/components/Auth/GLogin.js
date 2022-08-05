@@ -22,7 +22,6 @@ const GLogin = (props) => {
         if (user) {
           const auth = getAuth()
           const currentUser = auth.currentUser
-          console.log(currentUser)
           props.onLogin(currentUser)
         } else {
           setError('Login with Google failed. Please try again!', user)
