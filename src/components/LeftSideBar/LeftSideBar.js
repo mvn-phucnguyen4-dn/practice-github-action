@@ -58,7 +58,11 @@ const LeftSideBar = () => {
             <li className="list__item hvr-bg-lt">
               <NavLink to="/About" exact>
                 <i>
-                  <FaDev />
+                  <img
+                    src={require('../../assets/images/logo.jpg')}
+                    alt="main_logo"
+                    style={{ width: '1.5rem' }}
+                  />
                 </i>
                 About
               </NavLink>

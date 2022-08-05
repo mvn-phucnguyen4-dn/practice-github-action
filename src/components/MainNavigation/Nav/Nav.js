@@ -56,7 +56,12 @@ const Nav = ({ children, onSearchIconClick }) => {
       <div className="header__hamburger-menu" onClick={openDrawerHandler}></div>
       <div className="header__logo-search">
         <NavLink to="/" className="header__logo">
-          <FaDev size="4.125rem" />
+          <img
+            src={require('../../../assets/images/logo.jpg')}
+            alt="main_logo"
+            style={{ width: '5.5rem' }}
+          />
+          {/* <FaDev size="5.5rem" /> */}
         </NavLink>
         {children}
       </div>

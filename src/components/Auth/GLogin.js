@@ -18,14 +18,11 @@ const GLogin = (props) => {
   firebase.initializeApp(config)
 
   useEffect(() => {
-    console.log('login')
     const unregisterAuthObserver = firebase
       .auth()
       .onAuthStateChanged(async (user) => {
         if (user) {
-          console.log(user, 'user in GLogin')
           const tokenId = await user.getIdToken()
-          console.log('Token', tokenId)
           props.onLogin(user)
           //setShowLoginButton(false);
         } else {
