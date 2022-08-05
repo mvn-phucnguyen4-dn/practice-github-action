@@ -7,7 +7,6 @@ const Welcome = () => {
       <h2 className="welcome__title">Welcome to FatFish Community</h2>
       <p className="welcome__slogan">
         <Link to="/">FatFish</Link> is a community of amazing NodeJS developer
-        at Monstar-lab
       </p>
     </div>
   )
