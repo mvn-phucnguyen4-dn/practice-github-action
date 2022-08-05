@@ -3,6 +3,7 @@ import useHttpClient from '../../hooks/useHttpClient'
 import StyledFirebaseAuth from 'react-firebaseui/StyledFirebaseAuth'
 import firebase from 'firebase/compat/app'
 import 'firebase/compat/auth'
+import { getAuth } from 'firebase/auth'
 
 const GLogin = (props) => {
   const { setError } = useHttpClient()
@@ -19,8 +20,10 @@ const GLogin = (props) => {
       .auth()
       .onAuthStateChanged(async (user) => {
         if (user) {
-          const tokenId = await user.getIdToken()
-          props.onLogin(user)
+          const auth = getAuth()
+          const currentUser = auth.currentUser
+          console.log(currentUser)
+          props.onLogin(currentUser)
         } else {
           setError('Login with Google failed. Please try again!', user)
         }

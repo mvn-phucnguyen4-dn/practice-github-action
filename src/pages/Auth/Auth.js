@@ -31,24 +31,34 @@ const Auth = ({ newUser }) => {
   const { sendReq, error, clearError } = useHttpClient()
 
   //handle google auth
-  const handleGoogleAuth = async (googleData) => {
-    //getting tokenID from GLogin
-    console.log(googleData, 'User in authen')
-    const token = await googleData.getIdToken()
-    const responseData = await sendReq(
-      `${process.env.REACT_APP_BASE_URL}/users/auth/google`,
+  const handleGoogleAuth = async (user) => {
+    const tokenId = await user.getIdToken()
+    const response = await sendReq(
+      `${process.env.REACT_APP_BASE_URL}/users/login`,
       'POST',
       JSON.stringify({
-        tokenId: token,
+        tokenId,
       }),
       {
-        'Content-Type': 'application/json', //inform backend the type of data being sent
+        'Content-Type': 'application/json',
       },
     )
-    let { user } = responseData
-    user = { ...user, token: googleData.tokenId }
-    login(user) //log the user in
-    history.push('/')
+    if (response.data) {
+      const { accessToken, email, displayName, photoURL } = user
+      const { refreshToken } = user.stsTokenManager
+      login(
+        {
+          accessToken,
+          refreshToken,
+          photoURL,
+          displayName,
+          email,
+          id: response.data.id,
+        },
+        new Date(user.stsTokenManager.expirationTime),
+      )
+      history.push('/')
+    }
   }
 
   const handleAuthSubmit = async (evt) => {
