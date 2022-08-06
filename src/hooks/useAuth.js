@@ -12,7 +12,7 @@ const useAuth = () => {
 
   //useCallback((uid, token, expirationDate)
   const login = useCallback((user, expirationDate) => {
-    setToken(true)
+    setToken(user.accessToken)
     setUserId(user.userId)
     setUser(user)
 
