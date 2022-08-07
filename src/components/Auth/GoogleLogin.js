@@ -6,10 +6,11 @@ import { auth } from '../../utils/initFirebase'
 import { getAuth } from 'firebase/auth'
 import useHttpClient from '../../hooks/useHttpClient'
 import { signInWithPopup, GoogleAuthProvider } from 'firebase/auth'
+import ErrorModal from '../../components/Modal/ErrorModal'
 import { AuthContext } from '../../context/auth'
 
 const GoogleLogin = () => {
-  const { sendReq, error, clearError } = useHttpClient()
+  const { sendReq, clearError, setError, error } = useHttpClient()
   const { login } = useContext(AuthContext)
   const history = useHistory()
   const signWithGoogle = () => {
@@ -36,6 +37,7 @@ const GoogleLogin = () => {
           )
           if (response.data) {
             const { accessToken, email, displayName, photoURL } = currentUser
+            console.log(tokenId === accessToken)
             const { refreshToken } = currentUser.stsTokenManager
             login(
               {
@@ -53,12 +55,13 @@ const GoogleLogin = () => {
         }
       })
       .catch((error) => {
+        setError(error.message)
         history.push('/auth')
-        console.log(error)
       })
   }
   return (
     <>
+      <ErrorModal error={error} onClose={clearError} />
       <Button
         className="btn btn__auth btn__google"
         type="primary"
