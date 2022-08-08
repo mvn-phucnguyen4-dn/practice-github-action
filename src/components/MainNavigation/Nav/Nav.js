@@ -61,7 +61,6 @@ const Nav = ({ children, onSearchIconClick }) => {
             alt="main_logo"
             style={{ width: '5.5rem' }}
           />
-          {/* <FaDev size="5.5rem" /> */}
         </NavLink>
         {children}
       </div>

@@ -1,20 +1,3 @@
-/* .banner-one {
-  width: 1000px;
-  height: 500px;
-  display: flex;
-  position: relative;
-  margin-bottom: 30px;
-}
-
-.banner-one img {
-  height: 100%;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-} */
-
-/* mobile-first styles here */
-/* color styles here */
 .campaignmode-hackathon {
   border-radius: 0px;
   margin: 0px;
@@ -61,9 +44,6 @@
 
 .campaignmode-hackathon--column {
   flex-basis: 100%;
-  /*background-color: white;*/
-  /*border: 1px solid #ccc;*/
-  /*padding: 20px;*/
   margin: auto;
 }
 
@@ -92,20 +72,21 @@
   font-size: 36px;
 }
 
-.campaignmode-hackathon h2 {
+.campaignmode-hackathon p {
   margin: 10px 0px 1px;
   font-weight: 500;
   font-size: 20px;
 }
 
 .campaignmode-hackathon a {
-  background: #001e2b;
+  background: #449e4d;
   color: white;
-  border: 1px solid #001e2b;
+  border: 1px solid #449e4d;
   text-decoration: none;
   padding: 12px 25px;
   border-radius: 3px;
-  font-size: 1.5rem;
+  font-size: 1.7rem;
+  font-weight: bold;
   display: inline-block;
   max-width: 80%;
   margin: 25px 10px 10px 0px;
@@ -160,13 +141,6 @@
 }
 
 @media screen and (min-width: 960px) {
-  .campaignmode-hackathon--second {
-    /*max-width: none;
-      width: 40%;
-      vertical-align: bottom;
-      margin: 0;*/
-  }
-
   .campaignmode-hackathon--column {
     flex: 1;
   }
@@ -177,7 +151,7 @@
     font-size: 50px;
   }
 
-  .campaignmode-hackathon h2 {
+  .campaignmode-hackathon p {
     font-size: 24px;
   }
 

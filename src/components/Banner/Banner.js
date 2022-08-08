@@ -33,14 +33,12 @@ function Banner() {
               </div>
             </div>
             <h1>Welcome to big shark!</h1>
-            <h2>
+            <p>
               Lorem Ipsum is simply dummy text of the printing and typesetting
               industry. Lorem Ipsum has been the industry's standard dummy text
               ever since the 1500s, &amp; more!
-            </h2>
-            <a href="#">
-              <h3>Learn More &amp; Enter</h3>
-            </a>
+            </p>
+            <a href="#">Learn More &amp; Enter</a>
           </div>
         </div>
         <div className="campaignmode-hackathon--second">
