@@ -19,8 +19,8 @@ function Banner() {
             <div className="campaignmode-hackathon--third">
               <div className="campaignmode-hackathon--row">
                 <img
-                  src="https://res.cloudinary.com/practicaldev/image/fetch/s--WtDOBxPM--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_880/https://dev-to-uploads.s3.amazonaws.com/uploads/articles/h53gehcymycvhenvbwvd.png"
-                  style={{ width: '100px' }}
+                  src="https://marketplace.canva.com/Q9RcE/MAFFPbQ9RcE/1/tl/canva-cartoon-friendly-shark-MAFFPbQ9RcE.png"
+                  style={{ height: '100px' }}
                 />
                 <span className="campaignmode-hackathon--column campaignmode-hackathon--icon">
                   +
