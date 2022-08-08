@@ -32,7 +32,7 @@ function Banner() {
                 />
               </div>
             </div>
-            <h1>Welcome to big shark!</h1>
+            <h1>Welcome to big fish!</h1>
             <p>
               Lorem Ipsum is simply dummy text of the printing and typesetting
               industry. Lorem Ipsum has been the industry's standard dummy text
