@@ -1,29 +1,25 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
+import React, { useContext } from 'react'
+import { Link, useHistory } from 'react-router-dom'
 import 'firebase/compat/auth'
 import 'firebaseui/dist/firebaseui.css'
 import { Button } from 'antd'
-import { GoogleOutlined } from '@ant-design/icons'
 import Welcome from '../../components/Auth/Welcome'
 import useForm from '../../hooks/useForm'
 import { loginForm } from '../../utils/formConfig'
 import './Auth.css'
 
+import GoogleLogin from '../../components/Auth/GoogleLogin'
+
 const Auth = () => {
   const { renderFormInputs } = useForm(loginForm)
   const formInputs = renderFormInputs()
+
   return (
     <>
       <div className="container container-auth">
         <Welcome />
         <form className="form__auth">
-          <Button
-            className="btn btn__auth btn__google"
-            type="primary"
-            icon={<GoogleOutlined style={{ marginRight: '5px' }} />}
-          >
-            Continue with Google
-          </Button>
+          <GoogleLogin />
           <div className="form__options">
             <div className="registration__hr">
               <span className="registration__hr-label">
