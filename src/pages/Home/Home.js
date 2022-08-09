@@ -4,6 +4,7 @@ import RightSideBar from '../../components/RightSideBar/RightSideBar'
 import LeftSideBar from '../../components/LeftSideBar/LeftSideBar'
 import useHttpClient from '../../hooks/useHttpClient'
 import { AuthContext } from '../../context/auth'
+import Banner from '../../components/Banner/Banner'
 
 const Home = () => {
   const [tags, setTags] = useState([])
@@ -12,7 +13,6 @@ const Home = () => {
   useEffect(() => {
     const fetchPosts = async () => {
       try {
-        console.log(process.env.REACT_APP_BASE_URL)
         const responseData = await sendReq(
           `${process.env.REACT_APP_BASE_URL}/tags/home`,
         )
@@ -23,13 +23,16 @@ const Home = () => {
   }, [sendReq])
 
   return (
-    <div className="container-layout">
-      <div className="container-sidebar">
-        <LeftSideBar />
+    <>
+      <Banner />
+      <div className="container-layout">
+        <div className="container-sidebar">
+          <LeftSideBar />
+        </div>
+        <Posts cover={true} />
+        <RightSideBar tags={tags} isLoading={isLoading} />
       </div>
-      <Posts cover={true} />
-      <RightSideBar tags={tags} isLoading={isLoading} />
-    </div>
+    </>
   )
 }
 

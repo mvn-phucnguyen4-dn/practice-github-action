@@ -7,7 +7,7 @@ const SkeletonPostList = ({ type }) => {
     <>
       {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((n, index) => (
         <>
-          <SkeletonArticle firstEl={index === 0} type={type} />
+          <SkeletonArticle key={index} firstEl={index === 0} type={type} />
         </>
       ))}
     </>

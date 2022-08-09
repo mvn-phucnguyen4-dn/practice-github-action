@@ -12,7 +12,7 @@ const MiniPostList = (props) => {
         <h3>#{props.tag}</h3>
         <ul>
           {props.posts &&
-            props.posts.map((post, i) => (
+            props.posts.map((post) => (
               <div className="post__item" key={post.id}>
                 <Link
                   className="title-link"
