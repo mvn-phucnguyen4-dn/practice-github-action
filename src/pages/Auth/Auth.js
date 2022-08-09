@@ -11,12 +11,14 @@ import { getAuth } from 'firebase/auth'
 import useHttpClient from '../../hooks/useHttpClient'
 import { signInWithEmailAndPassword } from 'firebase/auth'
 import ErrorModal from '../../components/Modal/ErrorModal'
+import { AuthContext } from '../../context/auth'
 import './Auth.css'
 
 import GoogleLogin from '../../components/Auth/GoogleLogin'
 
 const Auth = () => {
   const { renderFormInputs, renderFormValues, isFormValid } = useForm(loginForm)
+  const { login } = useContext(AuthContext)
   const formInputs = renderFormInputs()
   const formValues = renderFormValues()
   const history = useHistory()
