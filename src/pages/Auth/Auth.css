@@ -6,8 +6,9 @@
   font-weight: 500;
   align-items: center;
   padding: 3.5rem 2rem 4.375rem 2rem;
-  max-width: 64rem;
+  max-width: 640px;
   width: 100%;
+  border-radius: 7px;
 }
 
 .container-auth > * {
@@ -22,13 +23,6 @@
   color: var(--color-white);
 }
 
-@media (min-width: 640px) {
-  .container-auth {
-    border: 1px solid var(--border-color);
-    border-radius: var(--border-radius);
-  }
-}
-
 .welcome {
   display: flex;
   flex-direction: column;
@@ -38,6 +32,7 @@
 
 .welcome__title {
   font-size: 3rem;
+  margin-bottom: 2rem;
 }
 
 .form__auth {
@@ -83,7 +78,6 @@ button.btn__social {
   width: 100%;
   text-transform: none;
   font-size: 1.6rem;
-  /* background: var(--border-color); */
   background: var(--bg-primary);
   color: var(--color-gray);
   display: flex;
@@ -92,22 +86,51 @@ button.btn__social {
   gap: 1rem;
 }
 
-button.btn--gh {
-  background: var(--color-black);
-  color: var(--color-white);
+.btn__google {
+  background-color: #dd4b39;
+  color: white;
 }
 
-button.btn--fb {
-  background: #4065b5;
-  color: var(--color-white);
+.registration__hr {
+  margin-bottom: 1rem;
+  position: relative;
+  text-align: center;
 }
 
-button.btn--tw {
-  background: #3796f2;
-  color: var(--color-white);
+.registration__hr-label {
+  position: relative;
+  font-size: 1.25rem;
+  color: #646464;
+  background: white;
+  z-index: 1;
+  display: inline-block;
+  max-width: 75%;
+  padding: 0 0.5rem;
+}
+
+.registration__hr::after {
+  border: 1px solid #646464;
+  content: '';
+  display: block;
+  position: absolute;
+  top: 50%;
+  width: 100%;
+  transform: translateY(50%);
+  border-radius: 5px;
 }
 
 button i {
   margin-top: 0.3rem;
   font-size: 2.3rem;
+}
+
+@media (max-width: 640px) {
+  .container-auth {
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius);
+  }
+  .welcome .welcome__title {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+  }
 }
