@@ -70,7 +70,7 @@ export const useHttpClient = () => {
     }
   }, [])
   //component using the hook needs access to these
-  return { isLoading, error, sendReq, clearError, setError }
+  return { isLoading, error, sendReq, clearError, setError, setIsLoading }
 }
 
 export default useHttpClient

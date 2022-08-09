@@ -5,6 +5,7 @@
   background: conic-gradient(#0000 10%, var(--color-primary));
   -webkit-mask: radial-gradient(farthest-side, #0000 calc(100% - 8px), #000 0);
   animation: spin 1s infinite linear;
+  z-index: 2;
 }
 
 .spinner--overlay {
@@ -13,7 +14,9 @@
   position: absolute;
   top: 0;
   left: 0;
-  background: rgba(255, 255, 255, 1);
+  pointer-events: visible;
+  background-color: transparent;
+  background-color: rgba(0, 0, 0, 0.5);
   display: flex;
   justify-content: center;
   align-items: center;
