@@ -12,6 +12,7 @@ import useHttpClient from '../../hooks/useHttpClient'
 import { signInWithEmailAndPassword } from 'firebase/auth'
 import ErrorModal from '../../components/Modal/ErrorModal'
 import { AuthContext } from '../../context/auth'
+import LoadingSpinner from '../../components/LoadingSpinner/LoadingSpinner'
 import './Auth.css'
 
 import GoogleLogin from '../../components/Auth/GoogleLogin'
@@ -22,7 +23,8 @@ const Auth = () => {
   const formInputs = renderFormInputs()
   const formValues = renderFormValues()
   const history = useHistory()
-  const { sendReq, error, clearError, setError } = useHttpClient()
+  const { sendReq, error, clearError, setError, isLoading, setIsLoading } =
+    useHttpClient()
 
   const loginWithEmailPassword = (email, password) => {
     return signInWithEmailAndPassword(auth, email, password)
@@ -31,6 +33,7 @@ const Auth = () => {
   const handleAuthSubmit = async (e) => {
     e.preventDefault()
     const { email, password } = formValues
+    setIsLoading(true)
     loginWithEmailPassword(email, password)
       .then(async (user) => {
         if (user) {
@@ -66,6 +69,7 @@ const Auth = () => {
         }
       })
       .catch((error) => {
+        setIsLoading(false)
         setError(error.message)
         history.push('/auth')
       })
@@ -74,6 +78,7 @@ const Auth = () => {
   return (
     <>
       <ErrorModal error={error} onClose={clearError} />
+      {isLoading ? <LoadingSpinner asOverlay={isLoading} /> : null}
       <div className="container container-auth">
         <Welcome />
         <form className="form__auth">

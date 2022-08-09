@@ -8,9 +8,11 @@ import useHttpClient from '../../hooks/useHttpClient'
 import { signInWithPopup, GoogleAuthProvider } from 'firebase/auth'
 import ErrorModal from '../../components/Modal/ErrorModal'
 import { AuthContext } from '../../context/auth'
+import LoadingSpinner from '../LoadingSpinner/LoadingSpinner'
 
 const GoogleLogin = () => {
-  const { sendReq, clearError, setError, error } = useHttpClient()
+  const { sendReq, clearError, setError, error, isLoading, setIsLoading } =
+    useHttpClient()
   const { login } = useContext(AuthContext)
   const history = useHistory()
   const signWithGoogle = () => {
@@ -19,6 +21,7 @@ const GoogleLogin = () => {
   }
 
   const handleSignGoogle = () => {
+    setIsLoading(true)
     signWithGoogle()
       .then(async (user) => {
         if (user) {
@@ -37,7 +40,6 @@ const GoogleLogin = () => {
           )
           if (response.data) {
             const { accessToken, email, displayName, photoURL } = currentUser
-            console.log(tokenId === accessToken)
             const { refreshToken } = currentUser.stsTokenManager
             login(
               {
@@ -62,6 +64,7 @@ const GoogleLogin = () => {
   return (
     <>
       <ErrorModal error={error} onClose={clearError} />
+      {isLoading ? <LoadingSpinner asOverlay={isLoading} /> : null}
       <Button
         className="btn btn__auth btn__google"
         type="primary"
