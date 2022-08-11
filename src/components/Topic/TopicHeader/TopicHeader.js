@@ -1,5 +1,5 @@
 import { Tag, Tooltip, Typography, Divider, Row, Col } from 'antd'
-import React from 'react'
+import React, { useState } from 'react'
 import './TopicHeader.css'
 
 const { Text, Title } = Typography
@@ -19,11 +19,38 @@ const tagColors = [
 ]
 
 function TopicHeader({ topic }) {
+  const [toggle, setToggle] = useState(false)
+
   return (
     <>
+      <div className="topic-square"></div>
       <div className="topic-title">
         <Title level={1}>{topic.title}</Title>
-        <Text>{topic.description}</Text>
+        <Text>
+          {topic.description.length > 600 && toggle === false ? (
+            <p>
+              {`${topic.description.slice(0, 600)}... `}
+              <span
+                style={{ cursor: 'pointer', color: '#099bea' }}
+                onClick={() => setToggle(true)}
+              >
+                see more
+              </span>
+            </p>
+          ) : topic.description.length < 600 ? (
+            topic.description
+          ) : (
+            <p>
+              {topic.description + ' '}
+              <span
+                style={{ cursor: 'pointer', color: '#099bea' }}
+                onClick={() => setToggle(false)}
+              >
+                see less
+              </span>
+            </p>
+          )}
+        </Text>
         <div className="hashtag">
           <Row>
             <Col span={16}>
