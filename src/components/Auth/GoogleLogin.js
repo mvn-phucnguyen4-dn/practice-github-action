@@ -52,7 +52,7 @@ const GoogleLogin = () => {
               },
               new Date(currentUser.stsTokenManager.expirationTime),
             )
-            history.push('/')
+            history.push('/auth')
           }
         }
       })

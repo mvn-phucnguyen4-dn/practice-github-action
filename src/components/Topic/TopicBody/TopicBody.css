@@ -1,0 +1,25 @@
+.section {
+  margin: 10px 0 20px 0;
+  background: #ffffff;
+  border-radius: 5px;
+}
+
+.section:last-child {
+  margin: 0;
+}
+
+.section-title {
+  font-weight: 600;
+  font-size: 30px;
+}
+
+.section-item {
+  padding: 10px;
+}
+
+.btn-submit {
+  margin-top: 10px;
+  width: 120px;
+  border-radius: 5px;
+  font-weight: bold;
+}
