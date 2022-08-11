@@ -31,7 +31,7 @@ const EditUserProfile = () => {
         //   history.push("/");
         // }
         prefillEditProfileForm(responseData.user)
-        setUser(responseData.user)
+        //setUser(responseData.user)
         setForm(editProfileForm)
       } catch (err) {}
     }

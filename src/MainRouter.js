@@ -40,9 +40,9 @@ const MainRouter = ({ token }) => {
           <Route path="/users/:userId/notifications" exact>
             <Notifications />
           </Route>
-          <Route path="/auth" exact>
+          {/* <Route path="/auth" exact>
             <Auth newUser={false} />
-          </Route>
+          </Route> */}
           <Route path="/tags" exact>
             <Tags />
           </Route>
@@ -74,11 +74,11 @@ const MainRouter = ({ token }) => {
           <Route path="/" exact>
             <Home />
           </Route>
-          <Route path="/auth/new-user" exact>
-            <Auth newUser={true} />
-          </Route>
           <Route path="/auth" exact>
             <Auth newUser={false} />
+          </Route>
+          <Route path="/auth/new-user" exact>
+            <Auth newUser={true} />
           </Route>
           <Route path="/tags" exact>
             <Tags />

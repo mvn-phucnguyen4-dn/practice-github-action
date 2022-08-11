@@ -50,9 +50,9 @@ const Input = (props) => {
         {label}
       </label>
       {element}
-      {!touched && errorMessage && !isValid && (
+      {/* {!touched && errorMessage && !isValid && (
         <span className="input__error">{errorMessage}</span>
-      )}
+      )} */}
     </div>
   )
 }
