@@ -1,0 +1,147 @@
+.container-auth {
+  background: var(--color-white);
+  display: flex;
+  flex-direction: column;
+  font-size: 1.6rem;
+  font-weight: 500;
+  align-items: center;
+  padding: 3.5rem 2rem 4.375rem 2rem;
+  max-width: 640px;
+  width: 100%;
+  border-radius: 7px;
+}
+
+.container-auth > * {
+  margin-top: 2rem;
+}
+
+.auth__social {
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+  width: 90%;
+  color: var(--color-white);
+}
+
+.welcome {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+}
+
+.welcome__title {
+  font-size: 3rem;
+  margin-bottom: 2rem;
+}
+
+.form__auth {
+  max-width: 55rem;
+}
+
+.form__options {
+  margin-top: 2rem;
+}
+
+.form__options p,
+.form__options h2 {
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+.form__group {
+  margin-bottom: 2rem;
+}
+
+.btn__auth {
+  width: 100%;
+  text-align: center;
+  border: 1px solid var(--color-primary);
+}
+
+.form__auth button.btn__auth,
+.form__auth a.btn__auth {
+  font-size: 1.4rem;
+}
+
+.btn__auth--mode {
+  background-color: var(--color-primary);
+  color: var(--color-white);
+}
+
+.btn__auth--switch {
+  border: 1px solid var(--color-primary);
+  color: var(--color-primary);
+}
+
+button.btn__social {
+  width: 100%;
+  text-transform: none;
+  font-size: 1.6rem;
+  background: var(--bg-primary);
+  color: var(--color-gray);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+
+.btn__google {
+  background-color: #dd4b39;
+  color: white;
+}
+
+.registration__hr {
+  margin-bottom: 1rem;
+  position: relative;
+  text-align: center;
+}
+
+.registration__hr-label {
+  position: relative;
+  font-size: 1.25rem;
+  color: #646464;
+  display: inline-block;
+  max-width: 75%;
+  padding: 0 0.5rem;
+}
+
+.registration__hr::after {
+  border: 1px solid #646464;
+  content: '';
+  display: 'block';
+  position: absolute;
+  top: 50%;
+  width: 20%;
+  left: 0em;
+  transform: translateY(50%);
+  border-radius: 5px;
+}
+
+.registration__hr::before {
+  border: 1px solid #646464;
+  content: '';
+  display: block;
+  position: absolute;
+  top: 50%;
+  right: 0;
+  width: 20%;
+  transform: translateY(50%);
+  border-radius: 5px;
+}
+
+button i {
+  margin-top: 0.3rem;
+  font-size: 2.3rem;
+}
+
+@media (max-width: 640px) {
+  .container-auth {
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius);
+  }
+  .welcome .welcome__title {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+  }
+}

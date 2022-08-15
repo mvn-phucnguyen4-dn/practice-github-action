@@ -1,0 +1,163 @@
+.campaignmode-hackathon {
+  border-radius: 0px;
+  margin: 0px;
+  font-size: 0.9em;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica,
+    Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
+  padding: 30px 0;
+  position: relative;
+  border: 2px solid #dfe3e6;
+  box-shadow: 2px 2px 2px #dfe3e6;
+  overflow: hidden;
+  color: #001e2b;
+  background: no-repeat
+    url('https://jess.forem.lol/remoteimages/uploads/articles/76ooqjofkcqviqoupdpi.png')
+    white;
+  background-size: cover;
+  background-position: center;
+}
+
+.campaignmode-hackathon--first {
+  display: inline-block;
+  width: 80%;
+  margin: 0 45px;
+}
+
+.campaignmode-hackathon--second {
+  display: none;
+}
+
+.campaignmode-hackathon--third .campaignmode-hackathon--row {
+  flex-wrap: nowrap;
+  width: 60%;
+  margin: 5% 0px;
+  flex-direction: row;
+}
+
+.campaignmode-hackathon--row {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+}
+
+.campaignmode-hackathon--column {
+  flex-basis: 100%;
+  margin: auto;
+}
+
+.campaignmode-hackathon--column p {
+  display: none;
+}
+
+.campaignmode-hackathon--clipart {
+  max-width: 225px;
+}
+
+.campaignmode-hackathon--logo {
+  max-width: 245px;
+}
+
+.campaignmode-hackathon--icon {
+  font-weight: 900;
+  font-size: 60px;
+  text-align: center;
+  margin: 0 10px;
+}
+
+.campaignmode-hackathon h1 {
+  margin: -5px auto 3px;
+  font-weight: 900;
+  font-size: 36px;
+}
+
+.campaignmode-hackathon p {
+  margin: 10px 0px 1px;
+  font-weight: 500;
+  font-size: 20px;
+}
+
+.campaignmode-hackathon a {
+  background: #449e4d;
+  color: white;
+  text-decoration: none;
+  padding: 12px 25px;
+  border-radius: 3px;
+  font-size: 1.7rem;
+  font-weight: bold;
+  display: inline-block;
+  max-width: 80%;
+  margin: 25px 10px 10px 0px;
+}
+
+.campaignmode-hackathon .closebutton {
+  position: absolute;
+  right: 18px;
+  top: 0px;
+  color: #001e2b;
+  background: transparent;
+  border: 0px;
+  font-size: 45px;
+  cursor: pointer;
+  text-align: right;
+  padding: 0px;
+  z-index: 1;
+}
+
+@media screen and (min-width: 600px) {
+  .campaignmode-hackathon {
+    border-radius: 9px;
+    margin: 10px auto;
+    max-width: 1285px;
+  }
+
+  .campaignmode-hackathon h1 {
+    font-size: 45px;
+  }
+}
+
+@media screen and (min-width: 800px) {
+  .campaignmode-hackathon--column p {
+    display: block;
+    font-size: 1rem;
+  }
+
+  .campaignmode-hackathon--first {
+    width: 45%;
+  }
+
+  .campaignmode-hackathon--second {
+    display: inline-block;
+    max-width: 175px;
+    vertical-align: top;
+  }
+
+  .campaignmode-hackathon--third {
+    display: none;
+  }
+}
+
+@media screen and (min-width: 960px) {
+  .campaignmode-hackathon--column {
+    flex: 1;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .campaignmode-hackathon h1 {
+    font-size: 50px;
+  }
+
+  .campaignmode-hackathon p {
+    font-size: 24px;
+  }
+
+  .campaignmode-hackathon a {
+    font-size: 20px;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .campaignmode-hackathon--second {
+    margin-left: 15%;
+  }
+}
