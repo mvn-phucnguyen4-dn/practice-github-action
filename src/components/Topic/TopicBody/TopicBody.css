@@ -8,13 +8,17 @@
   margin: 0;
 }
 
+.ant-list-item-meta-title {
+  margin-bottom: 15px;
+}
+
 .section-title {
   font-weight: 600;
-  font-size: 30px;
+  font-size: 25px;
 }
 
 .section-item {
-  padding: 10px;
+  padding: 0 30px 30px 30px;
 }
 
 .btn-submit {

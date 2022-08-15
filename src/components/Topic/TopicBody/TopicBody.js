@@ -18,41 +18,52 @@ function TopicBody({ sections }) {
     setDate(items)
   }
   return (
-    <div>
-      <ReactDragListView
-        nodeSelector=".ant-list-item.draggble"
-        onDragEnd={onDragEnd}
-      >
-        <List
-          size="small"
-          split={true}
-          dataSource={data}
-          renderItem={(item) => {
-            const draggble = item.id !== '-1'
-            return (
-              <List.Item className={draggble ? 'section draggble' : ''}>
-                <List.Item.Meta
-                  className="section-item"
-                  title={<Text className="section-title">{item.title}</Text>}
-                  description={item.questions.map((ele, index) => (
-                    <div key={ele.id}>
-                      {ele.type === 'multi_choice' ? (
-                        <MultipleChoice idx={index + 1} question={ele} />
-                      ) : (
-                        <ShortAnswer idx={index + 1} question={ele} />
-                      )}
-                    </div>
-                  ))}
-                ></List.Item.Meta>
-              </List.Item>
-            )
-          }}
-        />
-        <Button className="btn-submit" type="primary" size="large">
-          Submit
-        </Button>
-      </ReactDragListView>
-    </div>
+    <>
+      {data && (
+        <div>
+          <ReactDragListView
+            nodeSelector=".ant-list-item.draggble"
+            onDragEnd={onDragEnd}
+          >
+            <List
+              size="small"
+              split={true}
+              dataSource={data}
+              renderItem={(item) => {
+                const draggble = item.id !== '-1'
+                return (
+                  <List.Item className={draggble ? 'section draggble' : ''}>
+                    <List.Item.Meta
+                      className="section-item"
+                      title={
+                        <Text
+                          className="section-title"
+                          style={{ marginBottom: '50px' }}
+                        >
+                          {item.title}
+                        </Text>
+                      }
+                      description={item.questions.map((ele, index) => (
+                        <div key={ele.id}>
+                          {ele.type === 'multi_choice' ? (
+                            <MultipleChoice idx={index + 1} question={ele} />
+                          ) : (
+                            <ShortAnswer idx={index + 1} question={ele} />
+                          )}
+                        </div>
+                      ))}
+                    ></List.Item.Meta>
+                  </List.Item>
+                )
+              }}
+            />
+            <Button className="btn-submit" type="primary" size="large">
+              Submit
+            </Button>
+          </ReactDragListView>
+        </div>
+      )}
+    </>
   )
 }
 

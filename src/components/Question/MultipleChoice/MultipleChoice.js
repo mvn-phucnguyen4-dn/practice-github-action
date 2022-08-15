@@ -12,20 +12,22 @@ function MultipleChoice({ idx, question }) {
   }
 
   return (
-    <>
-      <div className="multi-choice">
-        <Title level={3}>{idx + ', ' + question.title}</Title>
-        <Radio.Group onChange={onChange} value={value}>
-          <Space direction="vertical">
-            {question.answers.map((item) => (
-              <Radio className="btn-radio" key={item.id} value={item.answer}>
-                {item.answer}
-              </Radio>
-            ))}
-          </Space>
-        </Radio.Group>
-      </div>
-    </>
+    <div className="multi-choice">
+      {question && (
+        <>
+          <Title level={4}>{idx + ', ' + question.title}</Title>
+          <Radio.Group onChange={onChange} value={value}>
+            <Space direction="vertical">
+              {question.answers.map((item) => (
+                <Radio className="btn-radio" key={item.id} value={item.answer}>
+                  {item.answer}
+                </Radio>
+              ))}
+            </Space>
+          </Radio.Group>
+        </>
+      )}
+    </div>
   )
 }
 

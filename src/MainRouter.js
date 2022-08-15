@@ -29,7 +29,7 @@ const MainRouter = ({ token }) => {
           <Route path="/" exact>
             <Home />
           </Route>
-          <Route path="/topic" exact>
+          <Route path="/topic/:topicId" exact>
             <Topic />
           </Route>
           <Route path="/users/:userId" exact>
@@ -79,7 +79,7 @@ const MainRouter = ({ token }) => {
           <Route path="/" exact>
             <Home />
           </Route>
-          <Route path="/topic" exact>
+          <Route path="/topic/:topicId" exact>
             <Topic />
           </Route>
           <Route path="/auth/new-user" exact>
