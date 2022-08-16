@@ -29,7 +29,6 @@ const GoogleLogin = () => {
           console.log(auth.currentUser)
           const currentUser = auth.currentUser
           const tokenId = await currentUser.getIdToken()
-          // console.log(tokenId)
           const response = await sendReq(
             `${process.env.REACT_APP_BASE_URL}/users/login`,
             'POST',
@@ -54,13 +53,13 @@ const GoogleLogin = () => {
               },
               new Date(currentUser.stsTokenManager.expirationTime),
             )
-            // history.push('/auth')
+            history.push('/auth')
           }
         }
       })
       .catch((error) => {
         setError(error.message)
-        // history.push('/auth')
+        history.push('/auth')
       })
   }
   return (
