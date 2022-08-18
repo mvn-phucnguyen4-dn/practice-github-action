@@ -3,13 +3,14 @@ import 'antd/dist/antd.min.css'
 import { Col, Row } from 'antd'
 import TopicHeader from '../../components/Topic/TopicHeader/TopicHeader'
 import TopicBody from '../../components/Topic/TopicBody/TopicBody'
-import './Topic.css'
 import useHttpClient from '../../hooks/useHttpClient'
 import { AuthContext } from '../../context/auth'
 import { useParams } from 'react-router-dom'
+import { getDataApi } from '../../utils/fetchDataApi'
+import './Topic.css'
 
 function Quiz() {
-  const { sendReq, setError } = useHttpClient()
+  const { setError } = useHttpClient()
   const [data, setData] = useState()
   const { currentUser } = useContext(AuthContext)
   const { topicId } = useParams()
@@ -17,25 +18,18 @@ function Quiz() {
   useEffect(() => {
     const fetchTopics = async () => {
       try {
-        const response = await sendReq(
-          `${process.env.REACT_APP_BASE_URL}/topics/${topicId}`,
-          'GET',
-          null,
-          {
-            'Content-Type': 'application/json',
-            Authorization: `Bearer ${currentUser.accessToken}`,
-          },
+        const response = await getDataApi(
+          `topics/${topicId}`,
+          currentUser.accessToken,
         )
 
-        if (response) {
-          setData(response.data)
-        }
+        response && setData(response.data)
       } catch (error) {
         setError(error.message)
       }
     }
     currentUser && fetchTopics()
-  }, [sendReq, topicId])
+  }, [currentUser, topicId])
 
   return (
     <>

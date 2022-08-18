@@ -26,7 +26,6 @@ const GoogleLogin = () => {
       .then(async (user) => {
         if (user) {
           const auth = getAuth()
-          console.log(auth.currentUser)
           const currentUser = auth.currentUser
           const tokenId = await currentUser.getIdToken()
           const response = await sendReq(

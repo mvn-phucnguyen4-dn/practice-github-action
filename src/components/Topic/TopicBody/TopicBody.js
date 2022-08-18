@@ -30,7 +30,7 @@ function TopicBody({ sections }) {
               split={true}
               dataSource={data}
               renderItem={(item) => {
-                const draggble = item.id !== '-1'
+                const draggble = item.id !== -1 // Allow all item can drag
                 return (
                   <List.Item className={draggble ? 'section draggble' : ''}>
                     <List.Item.Meta
@@ -43,12 +43,15 @@ function TopicBody({ sections }) {
                           {item.title}
                         </Text>
                       }
-                      description={item.questions.map((ele, index) => (
-                        <div key={ele.id}>
-                          {ele.type === 'multi_choice' ? (
-                            <MultipleChoice idx={index + 1} question={ele} />
+                      description={item.questions.map((element, index) => (
+                        <div key={element.id}>
+                          {element.type === 'multi_choice' ? (
+                            <MultipleChoice
+                              idx={index + 1}
+                              question={element}
+                            />
                           ) : (
-                            <ShortAnswer idx={index + 1} question={ele} />
+                            <ShortAnswer idx={index + 1} question={element} />
                           )}
                         </div>
                       ))}

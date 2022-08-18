@@ -7,7 +7,6 @@ const { Title } = Typography
 function MultipleChoice({ idx, question }) {
   const [value, setValue] = useState('')
   const onChange = (e) => {
-    console.log('radio checked', e.target.value)
     setValue(e.target.value)
   }
 
