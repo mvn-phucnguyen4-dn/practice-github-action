@@ -16,7 +16,7 @@ import { AuthContext } from '../../context/auth'
 import LoadingSpinner from '../../components/LoadingSpinner/LoadingSpinner'
 import GoogleLogin from '../../components/Auth/GoogleLogin'
 import './Auth.css'
-import { loginAPI } from '../../utils/authAPI'
+import { postDataApi } from '../../utils/fetchDataApi'
 
 const Auth = ({ newUser }) => {
   const { renderFormInputs, renderFormValues, setForm } = useForm(loginForm)
@@ -40,7 +40,7 @@ const Auth = ({ newUser }) => {
       setIsLoading(true)
       const currentUser = auth.currentUser
       const tokenId = await currentUser.getIdToken()
-      const response = await loginAPI(tokenId)
+      const response = await postDataApi(`users/login`, { tokenId })
       if (response.data) {
         const {
           accessToken,
