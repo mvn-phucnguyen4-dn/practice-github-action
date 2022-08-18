@@ -16,6 +16,7 @@ import { AuthContext } from '../../context/auth'
 import LoadingSpinner from '../../components/LoadingSpinner/LoadingSpinner'
 import GoogleLogin from '../../components/Auth/GoogleLogin'
 import './Auth.css'
+import { loginAPI } from '../../utils/authAPI'
 
 const Auth = ({ newUser }) => {
   const { renderFormInputs, renderFormValues, setForm } = useForm(loginForm)
@@ -35,41 +36,38 @@ const Auth = ({ newUser }) => {
   }, [newUser, setForm])
 
   const handleLoginAPI = async () => {
-    const currentUser = auth.currentUser
-    const tokenId = await currentUser.getIdToken()
-    const response = await sendReq(
-      `${process.env.REACT_APP_BASE_URL}/users/login`,
-      'POST',
-      JSON.stringify({
-        tokenId,
-      }),
-      {
-        'Content-Type': 'application/json',
-      },
-    )
-    if (response.data) {
-      const {
-        accessToken,
-        email,
-        displayName: name,
-        photoURL: avatar,
-      } = currentUser
-      const { refreshToken } = currentUser.stsTokenManager
-      login(
-        {
+    try {
+      setIsLoading(true)
+      const currentUser = auth.currentUser
+      const tokenId = await currentUser.getIdToken()
+      const response = await loginAPI(tokenId)
+      if (response.data) {
+        const {
           accessToken,
-          refreshToken,
-          avatar,
-          name,
           email,
-          id: response.data.id,
-        },
-        new Date(currentUser.stsTokenManager.expirationTime),
-      )
-      history.push('/')
-    } else {
+          displayName: name,
+          photoURL: avatar,
+        } = currentUser
+        const { refreshToken } = currentUser.stsTokenManager
+        login(
+          {
+            accessToken,
+            refreshToken,
+            avatar,
+            name,
+            email,
+            userId: response.data.id,
+          },
+          new Date(currentUser.stsTokenManager.expirationTime),
+        )
+        history.push('/')
+      } else {
+        setIsLoading(false)
+        history.push('/auth')
+      }
+    } catch (error) {
       setIsLoading(false)
-      history.push('/auth')
+      setError(error)
     }
   }
 
