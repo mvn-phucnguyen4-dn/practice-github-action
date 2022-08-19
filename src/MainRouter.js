@@ -16,6 +16,7 @@ import ReadingList from './pages/ReadingList/ReadingList'
 import Footer from './components/Footer/Footer'
 import { AuthContext } from './context/auth'
 import { BrowserRouter as Router } from 'react-router-dom'
+import EditTopic from './pages/EditTopic/EditTopic'
 
 const MainRouter = ({ token }) => {
   let routes
@@ -61,6 +62,9 @@ const MainRouter = ({ token }) => {
           <Route path="/posts/:titleURL/:postId/edit" exact>
             <EditPost />
           </Route>
+          <Route path="/topics/:id" exact>
+            <EditTopic />
+          </Route>
           <Redirect to="/auth" />
         </Switch>
         <Footer />
@@ -94,6 +98,9 @@ const MainRouter = ({ token }) => {
           </Route>
           <Route path="/posts/:titleURL/:postId" exact>
             <Post />
+          </Route>
+          <Route path="/topics/:id" exact>
+            <EditTopic />
           </Route>
           <Redirect to="/auth" />
         </Switch>
