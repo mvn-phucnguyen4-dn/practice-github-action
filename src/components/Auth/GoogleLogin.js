@@ -11,6 +11,7 @@ import LoadingSpinner from '../LoadingSpinner/LoadingSpinner'
 const GoogleLogin = (props) => {
   const { clearError, setError, error, isLoading, setIsLoading } =
     useHttpClient()
+  const history = useHistory()
 
   const handleSignInGoogle = async () => {
     try {
@@ -25,7 +26,6 @@ const GoogleLogin = (props) => {
       history.push('/auth')
     }
   }
-
   return (
     <>
       <ErrorModal error={error} onClose={clearError} />
