@@ -6,7 +6,7 @@ import TopicBody from '../../components/Topic/TopicBody/TopicBody'
 import useHttpClient from '../../hooks/useHttpClient'
 import { AuthContext } from '../../context/auth'
 import { useParams } from 'react-router-dom'
-import { getDataApi } from '../../utils/fetchDataApi'
+import { fetchDataApi } from '../../utils/fetchDataApi'
 import './Topic.css'
 
 function Quiz() {
@@ -18,7 +18,7 @@ function Quiz() {
   useEffect(() => {
     const fetchTopics = async () => {
       try {
-        const response = await getDataApi(
+        const response = await fetchDataApi(
           `topics/${topicId}`,
           currentUser.accessToken,
         )
