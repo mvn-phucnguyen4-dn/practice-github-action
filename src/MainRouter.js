@@ -16,6 +16,7 @@ import ReadingList from './pages/ReadingList/ReadingList'
 import Footer from './components/Footer/Footer'
 import { AuthContext } from './context/auth'
 import { BrowserRouter as Router } from 'react-router-dom'
+import Topic from './pages/Topic/Topic'
 import EditTopic from './pages/EditTopic/EditTopic'
 
 const MainRouter = ({ token }) => {
@@ -29,6 +30,9 @@ const MainRouter = ({ token }) => {
           <Route path="/" exact>
             <Home />
           </Route>
+          <Route path="/topic/:topicId" exact>
+            <Topic />
+          </Route>
           <Route path="/users/:userId" exact>
             <UserProfile />
           </Route>
@@ -40,9 +44,6 @@ const MainRouter = ({ token }) => {
           </Route>
           <Route path="/users/:userId/notifications" exact>
             <Notifications />
-          </Route>
-          <Route path="/auth" exact>
-            <Auth newUser={false} />
           </Route>
           <Route path="/tags" exact>
             <Tags />
@@ -78,11 +79,14 @@ const MainRouter = ({ token }) => {
           <Route path="/" exact>
             <Home />
           </Route>
-          <Route path="/auth/new-user" exact>
-            <Auth newUser={true} />
+          <Route path="/topic/:topicId" exact>
+            <Topic />
           </Route>
           <Route path="/auth" exact>
             <Auth newUser={false} />
+          </Route>
+          <Route path="/auth/new-user" exact>
+            <Auth newUser={true} />
           </Route>
           <Route path="/tags" exact>
             <Tags />
