@@ -1,5 +1,4 @@
 import React, { useState } from 'react'
-import Posts from '../../components/Post/Posts'
 import RightSideBar from '../../components/RightSideBar/RightSideBar'
 import LeftSideBar from '../../components/LeftSideBar/LeftSideBar'
 import useHttpClient from '../../hooks/useHttpClient'
@@ -16,7 +15,6 @@ const Home = () => {
         <div className="container-sidebar">
           <LeftSideBar />
         </div>
-        <Posts cover={true} />
         <RightSideBar tags={tags} isLoading={isLoading} />
       </div>
     </>
