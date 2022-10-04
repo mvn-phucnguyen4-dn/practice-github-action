@@ -1,5 +1,4 @@
 import React from 'react'
-import MiniPostList from '../MiniPostList/MiniPostList'
 import SkeletonPostList from '../Skeleton/SkeletonPostList'
 import './RightSideBar.css'
 
@@ -10,17 +9,7 @@ const RightSideBar = ({ tags, isLoading }) => {
 
   return (
     <div className="sidebar sidebar--right">
-      {isLoading ? (
-        <SkeletonPostList type="mini" />
-      ) : (
-        <>
-          {newsTag && <MiniPostList tag="news" posts={newsTag.posts} />}
-          {discussTag && (
-            <MiniPostList tag="discuss" posts={discussTag.posts} />
-          )}
-          {webdevTag && <MiniPostList tag="webdev" posts={webdevTag.posts} />}
-        </>
-      )}
+      {isLoading ? <SkeletonPostList type="mini" /> : <></>}
     </div>
   )
 }
