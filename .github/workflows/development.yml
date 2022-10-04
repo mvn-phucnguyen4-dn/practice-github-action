@@ -4,23 +4,43 @@ on:
   push:
     branches:
       - develop
-
+    paths:
+      - '!README.md'
+  pull_request:
+    branches:
+      - develop
+    type: [opened, synchronize, closed]
 jobs:
-  deploy:
+  myjob:
     runs-on: ubuntu-latest
-
     steps:
-      - name: Development Code
-        uses: actions/checkout@v2
-      - name: Use Node.js 16.x
-        uses: actions/setup-node@v1
+      - name: Generate token
+        id: generate_token
+        uses: tibdex/github-app-token@v1
         with:
-          node-version: 16.x
-      - run: npm install 
-      - run: npm run  build --if-present
-      - name: Deploy to Heroku
-        uses: akhileshns/heroku-deploy@v3.12.12
+          app_id: ${{ secrets.APP_ID }}
+          private_key: ${{ secrets.APP_PRIVATE_KEY }}
+      - name: Wait for approval
+        uses: trstringer/manual-approval@v1
         with:
-          heroku_api_key: ${{ secrets.HEROKU_API_KEY }}
-          heroku_app_name: 'staging-team1-fe'
-          heroku_email: 'phuc.nguyen4@monstar-lab.com'
+          secret: ${{ steps.generate_token.outputs.token }}
+          approvers: myteam
+          minimum-approvals: 1
+  # deploy:
+  #   runs-on: ubuntu-latest
+
+  #   steps:
+  #     - name: Development Code
+  #       uses: actions/checkout@v2
+  #     - name: Use Node.js 16.x
+  #       uses: actions/setup-node@v1
+  #       with:
+  #         node-version: 16.x
+  #     - run: npm install 
+  #     - run: npm run  build --if-present
+  #     - name: Deploy to Heroku
+  #       uses: akhileshns/heroku-deploy@v3.12.12
+  #       with:
+  #         heroku_api_key: ${{ secrets.HEROKU_API_KEY }}
+  #         heroku_app_name: 'staging-team1-fe'
+  #         heroku_email: 'phuc.nguyen4@monstar-lab.com'
